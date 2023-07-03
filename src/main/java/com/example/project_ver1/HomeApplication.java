@@ -23,13 +23,13 @@ public class HomeApplication extends Application {
         stage.setTitle("Club beer!");
         stage.setScene(loginScene);
         stage.show();
-
+        stage.setResizable(false);
         DB dbHelper = new DB();
 //        dbHelper.insertUser(new User(1,"Thanh", 20, "duythanh@gmail.com", "1234",  "0936936584",1));
 //        dbHelper.insertUser(new User(2,"Quang", 20, "duythanh@gmail.com", "1234",  "0936936584",1));
      //   dbHelper.insertUser(new User(3,"Phát", 20, "duythanh@gmail.com", "1234",  "0936936584",1));
         ImageView iv = (ImageView) loginScene.lookup("#img_login");
-        InputStream stream = new FileInputStream("C:\\Users\\ASUS\\Downloads\\club-beer-logo.png");
+        InputStream stream = new FileInputStream("/Users/quang/Downloads/club-beer-logo.png");
         Image i = new Image(stream);
         iv.setImage(i);
 
