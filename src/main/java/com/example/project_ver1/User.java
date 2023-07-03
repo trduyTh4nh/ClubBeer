@@ -1,19 +1,16 @@
-package com.huflit.clubbeer;
+package com.example.project_ver1;
 
-public class Users {
-    private int ID;
+public class User {
+    private int id;
     private String name;
     private int age;
     private String email;
     private String password;
     private String phone;
     private int role;
-    public Users(){
 
-    }
-
-    public Users(int ID, String name, int age, String email, String password, String phone, int role) {
-        this.ID = ID;
+    public User(int id, String name, int age, String email, String password, String phone, int role) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
@@ -22,12 +19,12 @@ public class Users {
         this.role = role;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -76,5 +73,18 @@ public class Users {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

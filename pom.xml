@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.huflit</groupId>
-  <artifactId>ClubBeer</artifactId>
+  <groupId>com.example</groupId>
+  <artifactId>Project_ver1</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>ClubBeer</name>
+  <name>Project_ver1</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,14 +17,18 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>20</version>
+      <version>19.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>20</version>
+      <version>19.0.2</version>
     </dependency>
-                                    
+                            <dependency>
+      <groupId>org.kordamp.bootstrapfx</groupId>
+      <artifactId>bootstrapfx-core</artifactId>
+      <version>0.4.0</version>
+    </dependency>        
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -53,8 +57,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
         <configuration>
-          <source>20</source>
-          <target>20</target>
+          <source>19</source>
+          <target>19</target>
         </configuration>
             </plugin>
       <plugin>
@@ -66,7 +70,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.huflit.clubbeer/com.huflit.clubbeer.HelloApplication</mainClass>
+              <mainClass>com.example.project_ver1/com.example.project_ver1.HelloApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

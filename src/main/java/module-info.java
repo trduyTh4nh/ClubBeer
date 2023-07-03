@@ -1,8 +1,12 @@
-module com.huflit.clubbeer {
+module com.example.project_ver1 {
     requires javafx.controls;
     requires javafx.fxml;
-            
-                            
-    opens com.huflit.clubbeer to javafx.fxml;
-    exports com.huflit.clubbeer;
+    requires java.naming;
+
+    requires org.kordamp.bootstrapfx.core;
+
+    requires java.sql;
+
+    opens com.example.project_ver1 to javafx.fxml;
+    exports com.example.project_ver1;
 }
