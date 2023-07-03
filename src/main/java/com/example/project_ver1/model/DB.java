@@ -1,8 +1,10 @@
-package com.example.project_ver1;
+package com.example.project_ver1.model;
+import com.example.project_ver1.class_model.User;
+
 import java.sql.*;
 import java.util.Properties;
 
-public class DBHelper {
+public class DB {
     private static final String URL = "jdbc:postgresql://localhost/clubbeer";
     private static final String USER = "postgres";
     private static final String PASSWORD = "1234";
@@ -11,7 +13,7 @@ public class DBHelper {
     Properties props;
     Connection conn;
 
-    public DBHelper() throws SQLException{
+    public DB() throws SQLException{
         props = new Properties();
         props.setProperty("user", USER);
         props.setProperty("password", PASSWORD);

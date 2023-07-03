@@ -1,10 +1,10 @@
-package com.example.project_ver1;
+package com.example.project_ver1.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class HelloController {
+public class HomeController {
     @FXML
     private Label welcomeText;
     @FXML
