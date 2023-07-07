@@ -60,9 +60,9 @@
             <Pane layoutY="21.0" prefHeight="454.0" prefWidth="756.0" style="-fx-background-color: #d9ecf2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="drawerPane" prefHeight="454.0" prefWidth="178.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0">
+      <AnchorPane fx:id="drawerPane" layoutX="44.0" layoutY="46.0" prefHeight="454.0" prefWidth="188.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="21.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+            <VBox layoutX="2.0" layoutY="20.0" prefHeight="200.0" prefWidth="209.0" spacing="21.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-33.0" AnchorPane.topAnchor="20.0">
                <children>
                   <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Dashboard">
                      <font>

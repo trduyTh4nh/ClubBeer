@@ -1,5 +1,6 @@
 package com.example.project_ver1;
 
+import com.example.project_ver1.constant.PathQuang;
 import com.example.project_ver1.model.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,42 +37,42 @@ public class HomeApplication extends Application {
         ImageView iv = (ImageView) loginScene.lookup("#img_login");
 
 
-        InputStream stream = new FileInputStream("C:\\Users\\ASUS\\Downloads\\club-beer-logo.png");
+        InputStream stream = new FileInputStream(PathQuang.PATH_LOGO);
         Image i = new Image(stream);
         iv.setImage(i);
 
         ImageView home = (ImageView) scene.lookup("#img_home");
-        InputStream stream1 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\home.png");
+        InputStream stream1 = new FileInputStream(PathQuang.PATH_HOME);
         Image i1 = new Image(stream1);
         home.setImage(i1);
 
         ImageView close = (ImageView) scene.lookup("#img_exit");
-        InputStream stream2 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\close.png");
+        InputStream stream2 = new FileInputStream(PathQuang.PATH_EXIT);
         Image i2 = new Image(stream2);
         close.setImage(i2);
 
         ImageView beer = (ImageView) scene.lookup("#img_beer");
-        InputStream stream3 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\beer.png");
+        InputStream stream3 = new FileInputStream(PathQuang.PATH_BEER);
         Image i3 = new Image(stream3);
         beer.setImage(i3);
 
         ImageView cart = (ImageView) scene.lookup("#img_cart");
-        InputStream stream4 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\online-shopping.png");
+        InputStream stream4 = new FileInputStream(PathQuang.PATH_CART);
         Image i4 = new Image(stream4);
         cart.setImage(i4);
 
         ImageView employ = (ImageView) scene.lookup("#img_employ");
-        InputStream stream5 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\team-management.png");
+        InputStream stream5 = new FileInputStream(PathQuang.PATH_EMPLOYEE);
         Image i5 = new Image(stream5);
         employ.setImage(i5);
 
         ImageView order = (ImageView) scene.lookup("#img_order");
-        InputStream stream6 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\shopping-list.png");
+        InputStream stream6 = new FileInputStream(PathQuang.PATH_ORDER);
         Image i6 = new Image(stream6);
         order.setImage(i6);
 
         ImageView logout = (ImageView) scene.lookup("#img_logout");
-        InputStream stream7 = new FileInputStream("D:\\HocTap\\LTJava\\ClubBeer\\src\\main\\java\\com\\example\\project_ver1\\images\\logout.png");
+        InputStream stream7 = new FileInputStream(PathQuang.PATH_LOGOUT);
         Image i7 = new Image(stream7);
         logout.setImage(i7);
 
