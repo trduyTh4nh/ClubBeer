@@ -28,9 +28,7 @@ public class DB {
     }
     public boolean login(String email, String password) throws SQLException {
         ResultSet statement =  st.executeQuery(String.format("SELECT * FROM USERS WHERE email  = '%s' and password = '%s'", email, password));
-
-        System.out.println(statement.next() ? "Thành công" : "Thất bại");
-        return false;
+        return statement.next();
     }
     public ResultSet getUser() throws SQLException {
         return st.executeQuery("SELECT * FROM USERS");

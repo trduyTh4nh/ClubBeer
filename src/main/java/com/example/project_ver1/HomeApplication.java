@@ -1,10 +1,13 @@
 package com.example.project_ver1;
 
 import com.example.project_ver1.constant.PathQuang;
+import com.example.project_ver1.constant.PathThanh;
 import com.example.project_ver1.model.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -14,65 +17,100 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
+
 public class HomeApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("home-view.fxml"));
         FXMLLoader login = new FXMLLoader(HomeApplication.class.getResource("login-view.fxml"));
-        FXMLLoader cartView = new FXMLLoader(HomeApplication.class.getResource("cart-view.fxml"));
         FXMLLoader productView = new FXMLLoader(HomeApplication.class.getResource("product-view.fxml"));
-        FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
         FXMLLoader orderView = new FXMLLoader(HomeApplication.class.getResource("order-view.fxml"));
+        FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
 
 
-        Scene loginScene = new Scene(login.load());
-        Scene scene = new Scene(fxmlLoader.load());
+
+
+        Scene sceneLogin = new Scene(login.load());
+        Scene sceneMain = new Scene(fxmlLoader.load());
+        Scene sceneProduct = new Scene(productView.load());
+        Scene sceneOrder = new Scene(orderView.load());
+        Scene sceneEmploy = new Scene(employView.load());
+
+        stage.setResizable(false);
         stage.setTitle("Club beer!");
-        stage.setScene(scene);
+        stage.setScene(sceneMain);
         stage.show();
 
         DB dbHelper = new DB();
 
 
-        ImageView iv = (ImageView) loginScene.lookup("#img_login");
+        ImageView iv = (ImageView) sceneLogin.lookup("#img_login");
+
+        Button btnDashboard = (Button) sceneMain.lookup("#id_dashboard");
+        btnDashboard.setOnAction(result -> {
+                stage.setScene(sceneMain);
+        });
+        Button btnProduct = (Button) sceneMain.lookup("#id_btnProduct");
+        btnProduct.setOnAction(result -> {
+            stage.setScene(sceneProduct);
+        });
+        Button buttonback1 = (Button) sceneProduct.lookup("#back");
+        buttonback1.setOnAction(result -> {
+            stage.setScene(sceneMain);
+        });
+
+        Button btnEmploy = (Button) sceneMain.lookup("#id_btnEmploy");
+        btnEmploy.setOnAction(result -> {
+            stage.setScene(sceneEmploy);
+        });
+        Button buttonback2 = (Button) sceneEmploy.lookup("#back");
+        buttonback2.setOnAction(result -> {
+            stage.setScene(sceneMain);
+        });
+        Button btnOrder = (Button) sceneMain.lookup("#id_btnOrder");
+        btnOrder.setOnAction(result -> {
+            stage.setScene(sceneOrder);
+        });
+        Button buttonback3 = (Button) sceneOrder.lookup("#back");
+        buttonback3.setOnAction(result -> {
+            stage.setScene(sceneMain);
+        });
+        Button btnLogout = (Button) sceneMain.lookup("#id_btnLogout");
 
 
-        InputStream stream = new FileInputStream(PathQuang.PATH_LOGO);
+        InputStream stream = new FileInputStream(PathThanh.PATH_LOGO);
         Image i = new Image(stream);
         iv.setImage(i);
 
-        ImageView home = (ImageView) scene.lookup("#img_home");
-        InputStream stream1 = new FileInputStream(PathQuang.PATH_HOME);
+        ImageView home = (ImageView) sceneMain.lookup("#img_home");
+        InputStream stream1 = new FileInputStream(PathThanh.PATH_HOME);
         Image i1 = new Image(stream1);
         home.setImage(i1);
 
-        ImageView close = (ImageView) scene.lookup("#img_exit");
-        InputStream stream2 = new FileInputStream(PathQuang.PATH_EXIT);
+        ImageView close = (ImageView) sceneMain.lookup("#img_exit");
+        InputStream stream2 = new FileInputStream(PathThanh.PATH_EXIT);
         Image i2 = new Image(stream2);
         close.setImage(i2);
 
-        ImageView beer = (ImageView) scene.lookup("#img_beer");
-        InputStream stream3 = new FileInputStream(PathQuang.PATH_BEER);
+        ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
+        InputStream stream3 = new FileInputStream(PathThanh.PATH_BEER);
         Image i3 = new Image(stream3);
         beer.setImage(i3);
 
-        ImageView cart = (ImageView) scene.lookup("#img_cart");
-        InputStream stream4 = new FileInputStream(PathQuang.PATH_CART);
-        Image i4 = new Image(stream4);
-        cart.setImage(i4);
 
-        ImageView employ = (ImageView) scene.lookup("#img_employ");
-        InputStream stream5 = new FileInputStream(PathQuang.PATH_EMPLOYEE);
+
+        ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
+        InputStream stream5 = new FileInputStream(PathThanh.PATH_EMPLOYEE);
         Image i5 = new Image(stream5);
         employ.setImage(i5);
 
-        ImageView order = (ImageView) scene.lookup("#img_order");
-        InputStream stream6 = new FileInputStream(PathQuang.PATH_ORDER);
+        ImageView order = (ImageView) sceneMain.lookup("#img_order");
+        InputStream stream6 = new FileInputStream(PathThanh.PATH_ORDER);
         Image i6 = new Image(stream6);
         order.setImage(i6);
 
-        ImageView logout = (ImageView) scene.lookup("#img_logout");
-        InputStream stream7 = new FileInputStream(PathQuang.PATH_LOGOUT);
+        ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
+        InputStream stream7 = new FileInputStream(PathThanh.PATH_LOGOUT);
         Image i7 = new Image(stream7);
         logout.setImage(i7);
 

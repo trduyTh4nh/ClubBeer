@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.HomeController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.HomeController">
    <children>
-      <AnchorPane prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #002d40;">
+      <AnchorPane prefHeight="46.0" prefWidth="960.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label fx:id="menu" layoutX="7.0" layoutY="7.0" />
-            <ImageView fx:id="img_exit" fitHeight="24.0" fitWidth="24.0" layoutX="762.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="img_exit" fitHeight="24.0" fitWidth="24.0" layoutX="762.0" layoutY="11.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
                <image>
                   <Image url="@../../../../java/com/example/project_ver1/images/close.png" />
                </image>
@@ -29,11 +29,6 @@
                   <ImageView fx:id="img_beer" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../java/com/example/project_ver1/images/beer.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="img_cart" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/online-shopping.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="img_employ" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -55,41 +50,36 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="44.0" layoutY="46.0" prefHeight="454.0" prefWidth="756.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="923.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <children>
-            <Pane layoutY="21.0" prefHeight="454.0" prefWidth="756.0" style="-fx-background-color: #d9ecf2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Pane layoutX="-30.0" layoutY="-137.0" prefHeight="666.0" prefWidth="953.0" style="-fx-background-color: #d9ecf2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="drawerPane" layoutX="44.0" layoutY="46.0" prefHeight="454.0" prefWidth="188.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0">
+      <AnchorPane fx:id="drawerPane" layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="151.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="46.0">
          <children>
-            <VBox layoutX="2.0" layoutY="20.0" prefHeight="200.0" prefWidth="209.0" spacing="21.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-33.0" AnchorPane.topAnchor="20.0">
+            <VBox layoutX="6.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="646.0" prefWidth="151.0" spacing="21.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Dashboard">
+                  <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Dashboard">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="179.0" text="Product">
+                  <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Product">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="58.0" prefHeight="38.0" prefWidth="179.0" text="Cart">
+                  <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Employee">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" prefHeight="38.0" prefWidth="179.0" text="Employee">
+                  <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="119.0" text="Order">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" prefHeight="38.0" prefWidth="179.0" text="Order">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="202.0" prefHeight="38.0" prefWidth="179.0" text="Logout">
+                  <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="202.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="120.0" text="Logout">
                      <font>
                         <Font size="16.0" />
                      </font>
