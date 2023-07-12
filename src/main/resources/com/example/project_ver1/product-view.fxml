@@ -2,10 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
    <children>
-      <Label layoutX="557.0" layoutY="348.0" text="Product" />
+      <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="374.0" layoutY="142.0" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
+      <TableView layoutX="183.0" layoutY="59.0" prefHeight="200.0" prefWidth="973.0" AnchorPane.topAnchor="54.0">
+        <columns>
+          <TableColumn prefWidth="194.0" text="Mã sản phẩm" />
+            <TableColumn prefWidth="194.0" text="Tên sản phẩm" />
+          <TableColumn prefWidth="194.0" text="Loại sản phẩm" />
+            <TableColumn prefWidth="194.0" text="Giá" />
+            <TableColumn prefWidth="194.0" text="Mô tả" />
+        </columns>
+      </TableView>
+      <Pane layoutY="54.0" prefHeight="200.0" prefWidth="184.0" style="-fx-background-color: #9697e9;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
+         <children>
+            <TextField layoutX="18.0" layoutY="28.0" promptText="Tìm kiếm sản phẩm" />
+            <Button layoutX="105.0" layoutY="67.0" mnemonicParsing="false" text="Tìm kiếm" />
+            <Separator layoutX="-4.0" layoutY="111.0" prefHeight="5.0" prefWidth="188.0" />
+            <TextField layoutX="16.0" layoutY="210.0" />
+            <Label layoutX="6.0" layoutY="133.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

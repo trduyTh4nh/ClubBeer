@@ -19,43 +19,31 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
     @FXML
-    private Label welcomeText;
-    @FXML
-    private TextField height;
-    @FXML
-    private ListView lvUsser;
-    public void Submit (ActionEvent event){
-    }
-    @FXML
-    private AnchorPane pane1, pane2;
-    @FXML
-    private Label menu;
-
-    @FXML
     private ImageView img_exit;
 
-    @FXML
-    private Label drawerImage;
-
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         img_exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
-
-
-
     }
     @FXML
     protected void product() throws IOException {
         HomeApplication.changeStage("product-view.fxml");
     }
+    @FXML
+    protected void order() throws IOException{
+        HomeApplication.changeStage("order-view.fxml");
+    }
+    @FXML
+    protected void employ() throws IOException{
+        HomeApplication.changeStage("employ-view.fxml");
+    }
+    @FXML
+    protected void logout() throws IOException{
+        HomeApplication.changeStage("login-view.fxml");
+    }
+
 
 }

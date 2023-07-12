@@ -79,11 +79,6 @@ public class HomeApplication extends Application {
         });
         Button btnLogout = (Button) sceneMain.lookup("#id_btnLogout");
 
-
-
-
-
-
     }
     public static void setBackbutton(Scene scene, String res){
         Button buttonback1 = (Button) scene.lookup("#back");

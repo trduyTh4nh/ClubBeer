@@ -69,17 +69,17 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Employee">
+                  <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" maxWidth="1.7976931348623157E308" onAction="#employ" prefHeight="38.0" prefWidth="179.0" text="Employee">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="119.0" text="Order">
+                  <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="38.0" prefWidth="119.0" text="Order">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="202.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="120.0" text="Logout">
+                  <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="202.0" maxWidth="1.7976931348623157E308" onAction="#logout" prefHeight="38.0" prefWidth="120.0" text="Logout">
                      <font>
                         <Font size="16.0" />
                      </font>
