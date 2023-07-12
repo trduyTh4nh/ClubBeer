@@ -1,11 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.EmployController">
    <children>
-      <Label layoutX="558.0" layoutY="348.0" text="Employ" />
-      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="54.0" prefHeight="657.0" prefWidth="898.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: #8F90DE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox prefWidth="311.0" spacing="10.0">
+                           <children>
+                              <TextField prefHeight="37.0" prefWidth="231.0" promptText="Tìm kiếm nhân viên" />
+                              <Button defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Tìm kiếm" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <Label text="Chỉnh sửa nhân viên" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox prefWidth="200.0" spacing="5.0">
+                           <children>
+                               <TextField prefWidth="311.0" promptText="ID">
+                                   <padding>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                   </padding>
+                              </TextField>
+                              <TextField prefWidth="311.0" promptText="Họ tên">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="25.0" layoutY="140.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <TextField prefWidth="311.0" promptText="Tuổi">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefWidth="311.0" promptText="Email">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="25.0" layoutY="182.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <TextField prefWidth="311.0" promptText="Mật khẩu">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefWidth="311.0" promptText="SĐT">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </HBox>
+                         <TextField prefWidth="311.0" promptText="Vai trò">
+                             <VBox.margin>
+                                 <Insets />
+                             </VBox.margin>
+                             <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                             </padding></TextField>
+                        <HBox prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Thêm" HBox.hgrow="ALWAYS" />
+                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Xóa" HBox.hgrow="ALWAYS" />
+                              <Button layoutX="62.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Sửa" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="39.0" text="ID" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="135.0" text="Tên" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="109.0" text="Tuổi" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="134.0" text="Email" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="SĐT" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="194.0" text="Password" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="Role" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
    </children>
 </AnchorPane>
