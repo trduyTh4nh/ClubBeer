@@ -12,7 +12,7 @@
             <Label fx:id="menu" layoutX="7.0" layoutY="7.0" />
             <ImageView fx:id="img_exit" fitHeight="24.0" fitWidth="24.0" layoutX="762.0" layoutY="11.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
                <image>
-                  <Image url="@../../../../java/com/example/project_ver1/images/close.png" />
+                  <Image url="@close.png" />
                </image>
             </ImageView>
          </children>
@@ -23,27 +23,27 @@
                <children>
                   <ImageView fx:id="img_home" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/home.png" />
+                        <Image url="@home.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="img_beer" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/beer.png" />
+                        <Image url="@beer.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="img_employ" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/team-management.png" />
+                        <Image url="@team-management.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="img_order" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/shopping-list.png" />
+                        <Image url="@shopping-list.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="img_logout" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../java/com/example/project_ver1/images/logout.png" />
+                        <Image url="@logout.png" />
                      </image>
                   </ImageView>
                </children>
