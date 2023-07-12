@@ -4,14 +4,18 @@ import com.example.project_ver1.HomeApplication;
 import com.example.project_ver1.model.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.channels.AlreadyBoundException;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -21,26 +25,32 @@ public class LoginController {
     private TextField text_login;
     @FXML
     private TextField text_pass;
+    @FXML
+    private Button btn_login;
 
-
-
+    DB db = new DB();
     public LoginController() throws SQLException, IOException {
-        FXMLLoader login = new FXMLLoader(HomeApplication.class.getResource("login-view.fxml"));
-//        DB db = new DB();
-//        String email = this.text_login.getText().toString();
-//        String password = this.text_pass.getText().toString();
-//        Alert alertInFo = new Alert(Alert.AlertType.CONFIRMATION);
-//        alertInFo.setTitle("Thông báo");
-//        if(db.login(email, password)){
-//            alertInFo.setContentText("Đăng nhập thành công!");
-//            FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("home-view.fxml"));
-//            Scene sceneMain = new Scene(fxmlLoader.load());
-//
-//        }
-//        else {
-//            alertInFo.setContentText("Đăng nhập thất bại");
-//        }
+
+
 
     }
+    @FXML
+    public void login() throws SQLException, IOException {
+        String email = text_login.getText().toString();
+        String password = text_pass.getText().toString();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Thông báo");
+        if(db.loginFunc(email, password)){
+            alert.setContentText("Đăng nhập thành công");
+            alert.show();
+            //Parent p = (Parent) root.load();
 
+            HomeApplication.changeStage("home-view.fxml");
+        }
+        else {
+            alert.setContentText("Đăng nhập thất bại");
+            alert.show();
+        }
+
+    }
 }

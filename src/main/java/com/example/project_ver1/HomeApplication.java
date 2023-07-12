@@ -13,22 +13,22 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
 
 public class HomeApplication extends Application {
+    private static Stage s;
     @Override
     public void start(Stage stage) throws IOException, SQLException {
+        s = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("home-view.fxml"));
         FXMLLoader login = new FXMLLoader(HomeApplication.class.getResource("login-view.fxml"));
         FXMLLoader productView = new FXMLLoader(HomeApplication.class.getResource("product-view.fxml"));
         FXMLLoader orderView = new FXMLLoader(HomeApplication.class.getResource("order-view.fxml"));
         FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
-
-
-
 
         Scene sceneLogin = new Scene(login.load());
         Scene sceneMain = new Scene(fxmlLoader.load());
@@ -38,22 +38,24 @@ public class HomeApplication extends Application {
 
         stage.setResizable(false);
         stage.setTitle("Club beer!");
-        stage.setScene(sceneMain);
+        stage.setScene(sceneLogin);
         stage.show();
 
         DB dbHelper = new DB();
 
 
         ImageView iv = (ImageView) sceneLogin.lookup("#img_login");
-
-        Button btnDashboard = (Button) sceneMain.lookup("#id_dashboard");
-        btnDashboard.setOnAction(result -> {
-                stage.setScene(sceneMain);
-        });
-        Button btnProduct = (Button) sceneMain.lookup("#id_btnProduct");
-        btnProduct.setOnAction(result -> {
-            stage.setScene(sceneProduct);
-        });
+        InputStream stream = new FileInputStream(PathThanh.PATH_LOGO);
+        Image i = new Image(stream);
+        iv.setImage(i);
+//        Button btnDashboard = (Button) sceneMain.lookup("#id_dashboard");
+//        btnDashboard.setOnAction(result -> {
+//                stage.setScene(sceneMain);
+//        });
+//        Button btnProduct = (Button) sceneMain.lookup("#id_btnProduct");
+//        btnProduct.setOnAction(result -> {
+//            stage.setScene(sceneProduct);
+//        });
         Button buttonback1 = (Button) sceneProduct.lookup("#back");
         buttonback1.setOnAction(result -> {
             stage.setScene(sceneMain);
@@ -78,9 +80,24 @@ public class HomeApplication extends Application {
         Button btnLogout = (Button) sceneMain.lookup("#id_btnLogout");
 
 
-        InputStream stream = new FileInputStream(PathThanh.PATH_LOGO);
-        Image i = new Image(stream);
-        iv.setImage(i);
+
+
+
+
+    }
+    public static void setBackbutton(Scene scene, String res){
+        Button buttonback1 = (Button) scene.lookup("#back");
+        buttonback1.setOnAction(result -> {
+            try {
+                changeStage(res);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+    }
+    public static void setImages(Scene sceneMain) throws FileNotFoundException {
+
 
         ImageView home = (ImageView) sceneMain.lookup("#img_home");
         InputStream stream1 = new FileInputStream(PathThanh.PATH_HOME);
@@ -113,11 +130,17 @@ public class HomeApplication extends Application {
         InputStream stream7 = new FileInputStream(PathThanh.PATH_LOGOUT);
         Image i7 = new Image(stream7);
         logout.setImage(i7);
-
-
-
     }
-
+    public static void changeStage(String res) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HomeApplication.class.getResource(res));
+        Scene sc = new Scene(loader.load());
+        s.setScene(sc);
+        if(res != "home-view.fxml"){
+            setBackbutton(sc, "home-view.fxml");
+        }
+        if(res == "home-view.fxml")
+            setImages(sc);
+    }
     public static void main(String[] args) {
         launch();
     }

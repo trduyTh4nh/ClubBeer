@@ -64,7 +64,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Product">
+                  <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#product" prefHeight="38.0" prefWidth="179.0" text="Product">
                      <font>
                         <Font size="16.0" />
                      </font>

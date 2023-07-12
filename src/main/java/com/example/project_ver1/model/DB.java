@@ -26,7 +26,7 @@ public class DB {
                 "(%d, '%s', %d, '%s', '%s', '%s' , %d)",user.getId(), user.getName(), user.getAge(), user.getEmail(), user.getPassword(), user.getPhone(), user.getRole()));
         return test.executeUpdate();
     }
-    public boolean login(String email, String password) throws SQLException {
+    public boolean loginFunc(String email, String password) throws SQLException {
         ResultSet statement =  st.executeQuery(String.format("SELECT * FROM USERS WHERE email  = '%s' and password = '%s'", email, password));
         return statement.next();
     }
