@@ -126,6 +126,7 @@ public class EmployController implements Initializable {
     }
     @FXML
     public void clearBoxes(){
+        ID = -1;
         field_name.setText("");
         field_id.setText("");
         field_id.setDisable(false);
@@ -158,15 +159,21 @@ public class EmployController implements Initializable {
             a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
             a.setHeaderText("Lỗi SQL");
             a.show();
+        } catch (Exception e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi");
+            a.setContentText("Lỗi về phần mềm, có thể các ô có thể rỗng hoặc sai kiểu dữ liệu: \n" + e.getMessage());
+            a.setHeaderText("Lỗi client");
+            a.show();
         }
         clearBoxes();
     }
     @FXML
-    public void deleteUser() throws SQLException{
+    public void deleteUser(){
         try{
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setTitle("Xác nhận xoá");
-            a.setContentText("Bạm có muốn xoá người dùng " + String.valueOf(ID) + "?");
+            a.setContentText("Bạm có muốn xoá người dùng \"" + field_name.getText() + "\"?");
             a.setHeaderText("Xoá người dùng?");
             a.showAndWait();
             if(a.getResult() == ButtonType.OK){
@@ -179,6 +186,41 @@ public class EmployController implements Initializable {
             a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
             a.setHeaderText("Lỗi SQL");
             a.show();
+        } catch (Exception e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi");
+            a.setContentText("Lỗi về phần mềm, có thể các ô có thể rỗng hoặc sai kiểu dữ liệu: \n" + e.getMessage());
+            a.setHeaderText("Lỗi client");
+            a.show();
         }
+        clearBoxes();
+    }
+    @FXML
+    public void updateUser(){
+        try{
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setTitle("Xác nhận chỉnh sửa");
+            a.setContentText("Bạm có muốn chỉnh sửa người dùng \"" + field_name.getText() + "\"?");
+            a.setHeaderText("Chỉnh sửa người dùng?");
+            a.showAndWait();
+            if(a.getResult() == ButtonType.OK){
+                User user = getFromField();
+                db.editUser(user);
+                getData();
+            }
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi CSDL");
+            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getMessage());
+            a.setHeaderText("Lỗi SQL");
+            a.show();
+        } catch (Exception e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi");
+            a.setContentText("Lỗi về phần mềm, có thể các ô có thể rỗng hoặc sai kiểu dữ liệu: \n" + e.getMessage());
+            a.setHeaderText("Lỗi client");
+            a.show();
+        }
+        clearBoxes();
     }
 }

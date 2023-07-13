@@ -40,4 +40,14 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement("DELETE FROM users WHERE id = " + String.valueOf(id));
         statement.execute();
     }
+    public void editUser(User user) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(
+                String.format(
+                        "UPDATE users " +
+                                "SET name = '%s', age = %d, email = '%s', password = '%s', phone = '%s', role = %d " +
+                                "WHERE id = " + user.getId(), user.getName(), user.getAge(), user.getEmail(), user.getPassword(), user.getPhone(), user.getRole()
+                )
+        );
+        statement.execute();
+    }
 }
