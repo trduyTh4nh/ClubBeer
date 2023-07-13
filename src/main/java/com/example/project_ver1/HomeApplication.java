@@ -38,7 +38,7 @@ public class HomeApplication extends Application {
 
         stage.setResizable(false);
         stage.setTitle("Club beer!");
-        stage.setScene(sceneLogin);
+        stage.setScene(sceneProduct);
         stage.show();
 
         DB dbHelper = new DB();

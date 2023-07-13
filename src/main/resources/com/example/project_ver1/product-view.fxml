@@ -9,13 +9,13 @@
       <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="374.0" layoutY="142.0" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
-      <TableView layoutX="183.0" layoutY="59.0" prefHeight="200.0" prefWidth="973.0" AnchorPane.topAnchor="54.0">
+      <TableView fx:id="tableProduct" layoutX="183.0" layoutY="59.0" prefHeight="200.0" prefWidth="973.0" AnchorPane.topAnchor="54.0">
         <columns>
-          <TableColumn prefWidth="194.0" text="Mã sản phẩm" />
-            <TableColumn prefWidth="194.0" text="Tên sản phẩm" />
-          <TableColumn prefWidth="194.0" text="Loại sản phẩm" />
-            <TableColumn prefWidth="194.0" text="Giá" />
-            <TableColumn prefWidth="194.0" text="Mô tả" />
+          <TableColumn id="idProduct" fx:id="masp" prefWidth="194.0" text="Mã sản phẩm" />
+            <TableColumn id="nameProduct" fx:id="tensp" prefWidth="194.0" text="Tên sản phẩm" />
+          <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="194.0" text="Loại sản phẩm" />
+            <TableColumn id="priceProduct" fx:id="giasp" prefWidth="194.0" text="Giá" />
+            <TableColumn id="desProduct" fx:id="motasp" prefWidth="194.0" text="Mô tả" />
         </columns>
       </TableView>
       <Pane layoutY="54.0" prefHeight="200.0" prefWidth="184.0" style="-fx-background-color: #9697e9;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
@@ -23,12 +23,20 @@
             <TextField layoutX="18.0" layoutY="28.0" promptText="Tìm kiếm sản phẩm" />
             <Button layoutX="105.0" layoutY="67.0" mnemonicParsing="false" text="Tìm kiếm" />
             <Separator layoutX="-4.0" layoutY="111.0" prefHeight="5.0" prefWidth="188.0" />
-            <TextField layoutX="16.0" layoutY="210.0" />
-            <Label layoutX="6.0" layoutY="133.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="137.0" prefHeight="21.0" prefWidth="176.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
+            <VBox layoutX="20.0" layoutY="191.0" prefHeight="210.0" prefWidth="149.0" spacing="20.0">
+               <children>
+                  <TextField fx:id="id_id" promptText="Mã sản phẩm" />
+                  <TextField fx:id="id_name" promptText="Tên sản phẩm" />
+                  <TextField fx:id="id_cate" promptText="Loại sản phẩm" />
+                  <TextField fx:id="id_price" promptText="Giá" />
+                  <TextField fx:id="id_desc" promptText="Mô tả" />
+               </children></VBox>
+            <Button fx:id="btn_addProduct" layoutX="69.0" layoutY="414.0" mnemonicParsing="false" onAction="#addProduct" text="Thêm sản Phẩm" />
          </children>
       </Pane>
    </children>
