@@ -8,14 +8,14 @@ import java.util.ListIterator;
 public class Product implements List<Product>  {
 
 
-    private String MaSP;
+    private int MaSP;
     private String TenSP;
     private String MoTa;
-    private String MaLoaiSp;
+    private int MaLoaiSp;
 
     private int Gia;
 
-    public Product(String maSP, String tenSP, String moTa, String maLoaiSp, int gia) {
+    public Product(int maSP, String tenSP, String moTa, int maLoaiSp, int gia) {
         MaSP = maSP;
         TenSP = tenSP;
         MoTa = moTa;
@@ -23,11 +23,11 @@ public class Product implements List<Product>  {
         Gia = gia;
     }
 
-    public String getMaSP() {
+    public int getMaSP() {
         return MaSP;
     }
 
-    public void setMaSP(String maSP) {
+    public void setMaSP(int maSP) {
         MaSP = maSP;
     }
 
@@ -47,11 +47,11 @@ public class Product implements List<Product>  {
         MoTa = moTa;
     }
 
-    public String getMaLoaiSp() {
+    public int getMaLoaiSp() {
         return MaLoaiSp;
     }
 
-    public void setMaLoaiSp(String maLoaiSp) {
+    public void setMaLoaiSp(int maLoaiSp) {
         MaLoaiSp = maLoaiSp;
     }
 
@@ -182,6 +182,7 @@ public class Product implements List<Product>  {
     public List<Product> subList(int fromIndex, int toIndex) {
         return null;
     }
+
 }
 
 

@@ -1,4 +1,5 @@
 package com.example.project_ver1.model;
+import com.example.project_ver1.class_model.Product;
 import com.example.project_ver1.class_model.User;
 
 import java.sql.*;
@@ -33,11 +34,31 @@ public class DB {
     public ResultSet getUser() throws SQLException {
         return st.executeQuery("SELECT * FROM USERS");
     }
+
+    public ResultSet getProduct() throws SQLException{
+        return st.executeQuery("SELECT * FROM SanPham");
+    }
+
+    public ResultSet searchProduct(String nameProduct) throws SQLException {
+        return st.executeQuery("SELECT * FROM SanPham WHERE TenSP LIKE '"+ nameProduct + "%'");
+    }
     public ResultSet getUserbyKeyword(String keyword) throws SQLException {
         return st.executeQuery("SELECT * FROM USERS WHERE NAME LIKE '" + keyword + "%'");
     }
     public void removeUser(int id) throws SQLException {
-        PreparedStatement statement = conn.prepareStatement("DELETE FROM users WHERE id = " + String.valueOf(id));
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM USERS WHERE ID = " + String.valueOf(id));
+        statement.execute();
+    }
+    public void insertProduct(Product product) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("INSERT INTO SanPham  VALUES (%d, '%s', '%s', %d, %d)", product.getMaSP(), product.getTenSP(), product.getMoTa(), product.getMaLoaiSp(), product.getGia()));
+        statement.execute();
+    }
+    public void updateProduct(Product product) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("UPDATE SanPham  SET tensp  = '%s'" +
+                ", mota = '%s' " +
+                ", maloai = %d " +
+                ", gia = %d " +
+                "WHERE masp = %d", product.getTenSP(), product.getMoTa(), product.getMaLoaiSp(), product.getGia(), product.getMaSP()));
         statement.execute();
     }
     public void editUser(User user) throws SQLException {
@@ -50,4 +71,11 @@ public class DB {
         );
         statement.execute();
     }
+
+    public void removeProduct(int ID) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM SanPham WHERE masp = %d", ID));
+        statement.execute();
+    }
+
+
 }

@@ -109,7 +109,6 @@ public class HomeApplication extends Application {
         beer.setImage(i3);
 
 
-
         ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
         Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
         employ.setImage(i5);

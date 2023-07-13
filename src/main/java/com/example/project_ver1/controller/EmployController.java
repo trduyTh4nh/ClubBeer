@@ -183,7 +183,7 @@ public class EmployController implements Initializable {
         } catch (SQLException e){
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Lỗi CSDL");
-            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
+            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getMessage());
             a.setHeaderText("Lỗi SQL");
             a.show();
         } catch (Exception e){
@@ -223,4 +223,5 @@ public class EmployController implements Initializable {
         }
         clearBoxes();
     }
+
 }
