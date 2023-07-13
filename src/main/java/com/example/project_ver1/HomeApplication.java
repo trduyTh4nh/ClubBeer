@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Objects;
 
 
 public class HomeApplication extends Application {
@@ -45,8 +46,7 @@ public class HomeApplication extends Application {
 
 
         ImageView iv = (ImageView) sceneLogin.lookup("#img_login");
-        InputStream stream = new FileInputStream(PathThanh.PATH_LOGO);
-        Image i = new Image(stream);
+        Image i = new Image(Objects.requireNonNull(getClass().getResource("club-beer-logo.png")).toExternalForm());
         iv.setImage(i);
 //        Button btnDashboard = (Button) sceneMain.lookup("#id_dashboard");
 //        btnDashboard.setOnAction(result -> {
@@ -95,35 +95,30 @@ public class HomeApplication extends Application {
 
 
         ImageView home = (ImageView) sceneMain.lookup("#img_home");
-        InputStream stream1 = new FileInputStream(PathThanh.PATH_HOME);
-        Image i1 = new Image(stream1);
+
+        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
         home.setImage(i1);
 
         ImageView close = (ImageView) sceneMain.lookup("#img_exit");
-        InputStream stream2 = new FileInputStream(PathThanh.PATH_EXIT);
-        Image i2 = new Image(stream2);
+        Image i2 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("close.png")).toExternalForm());
         close.setImage(i2);
 
         ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
-        InputStream stream3 = new FileInputStream(PathThanh.PATH_BEER);
-        Image i3 = new Image(stream3);
+        Image i3 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("beer.png")).toExternalForm());
         beer.setImage(i3);
 
 
 
         ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
-        InputStream stream5 = new FileInputStream(PathThanh.PATH_EMPLOYEE);
-        Image i5 = new Image(stream5);
+        Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
         employ.setImage(i5);
 
         ImageView order = (ImageView) sceneMain.lookup("#img_order");
-        InputStream stream6 = new FileInputStream(PathThanh.PATH_ORDER);
-        Image i6 = new Image(stream6);
+        Image i6 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("shopping-list.png")).toExternalForm());
         order.setImage(i6);
 
         ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
-        InputStream stream7 = new FileInputStream(PathThanh.PATH_LOGOUT);
-        Image i7 = new Image(stream7);
+        Image i7 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("logout.png")).toExternalForm());
         logout.setImage(i7);
     }
     public static void changeStage(String res) throws IOException {

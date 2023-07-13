@@ -7,7 +7,7 @@ import java.util.Properties;
 public class DB {
     private static final String URL = "jdbc:postgresql://localhost/clubbeer";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "SuperPassword";
 
     private Statement st;
     private Properties props;
