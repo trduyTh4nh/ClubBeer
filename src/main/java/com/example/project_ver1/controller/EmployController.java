@@ -1,33 +1,184 @@
 package com.example.project_ver1.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.project_ver1.class_model.Product;
+import com.example.project_ver1.class_model.User;
+import com.example.project_ver1.model.DB;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import org.w3c.dom.events.MouseEvent;
 
+import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class EmployController {
+public class EmployController implements Initializable {
+    private ArrayList<User> u;
+    private int ID;
     @FXML
-    private TableView<Map<String, String>> tableView;
+    private TextField field_id, field_name, field_age, field_email, field_phone, field_role;
+    @FXML
+    private PasswordField field_password;
+    DB db;
+    @FXML
+    private TableView<User> tableUser;
+    @FXML
+    public TableColumn<Product, Integer> col_id;
+    @FXML
+    public TableColumn<Product, String> col_name;
+    @FXML
+    public TableColumn<Product, Integer> col_age;
+    @FXML
+    public TableColumn<Product, String> col_email;
+    @FXML
+    public TableColumn<Product, String> col_phone;
+    @FXML
+    public TableColumn<Product, String> col_psswd;
+    @FXML
+    public TableColumn<Product, Integer> col_role;
+    @FXML
+    public TextField search_employ;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            getData();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public EmployController() throws SQLException {
+        db = new DB();
+    }
 
+    @FXML
+    public void getData() throws SQLException {
+        getTableprops();
+        u = userToArr();
+        tableUser.getItems().addAll(u);
+    }
+    public void getData(ArrayList<User> u) throws SQLException {
+        getTableprops();
+        tableUser.getItems().addAll(u);
+    }
+
+    private void getTableprops() {
+        tableUser.getItems().clear();
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_psswd.setCellValueFactory(new PropertyValueFactory<>("password"));
+        col_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        col_role.setCellValueFactory(new PropertyValueFactory<>("role"));
+    }
+
+    @FXML
+    public void searchUser() throws SQLException{
+        String keyword = search_employ.getText();
+        u = userToArr(keyword);
+        getData(u);
+    }
+    private ArrayList<User> userToArr() throws SQLException {
+        ArrayList<User> usrs = new ArrayList<>();
+        ResultSet r = db.getUser();
+        while(r.next()){
+            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getInt(7)));
+        }
+        return usrs;
+    }
+    private ArrayList<User> userToArr(String keyword) throws SQLException {
+        ArrayList<User> usrs = new ArrayList<>();
+        ResultSet r = db.getUserbyKeyword(keyword);
+        while(r.next()){
+            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getInt(7)));
+        }
+        return usrs;
     }
     @FXML
-    public void getData(){
-        ObservableList<Map<String, String>> list = FXCollections.<Map<String,String>>observableArrayList();
-        Map<String, String> item1 = new HashMap<>();
-        item1.put("ID", "1");
-        item1.put("Tên", "test");
-        item1.put("Tuổi", "100");
-        item1.put("Email", "Test");
-        item1.put("SĐT", "0");
-        item1.put("Password", "a2daeftqw");
-        item1.put("Role", "0");
-        list.add(item1);
-        tableView.getItems().addAll(list);
+    public void clickItem(){
+        getItem();
+    }
+    @FXML
+    public void keyboardItem(KeyEvent e){
+        if(e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.UP){
+            getItem();
+        }
+    }
+
+    private void getItem() {
+        User user = tableUser.getSelectionModel().getSelectedItem();
+        ID = user.getId();
+        field_name.setText(user.getName());
+        field_id.setText(String.valueOf(user.getId()));
+        field_id.setDisable(true);
+        field_age.setText(String.valueOf(user.getAge()));
+        field_email.setText(String.valueOf(user.getEmail()));
+        field_password.setText(String.valueOf(user.getPassword()));
+        field_phone.setText(user.getPhone());
+        field_role.setText(String.valueOf(user.getRole()));
+    }
+    @FXML
+    public void clearBoxes(){
+        field_name.setText("");
+        field_id.setText("");
+        field_id.setDisable(false);
+        field_age.setText("");
+        field_email.setText(String.valueOf(""));
+        field_password.setText(String.valueOf(""));
+        field_phone.setText("");
+        field_role.setText(String.valueOf(""));
+    }
+    public User getFromField(){
+        User user = new User();
+        user.setId(Integer.parseInt(field_id.getText()));
+        user.setName(field_name.getText());
+        user.setAge(Integer.parseInt(field_age.getText()));
+        user.setEmail(field_email.getText());
+        user.setPassword(field_password.getText());
+        user.setPhone(field_phone.getText());
+        user.setRole(Integer.parseInt(field_role.getText()));
+        return user;
+    }
+    @FXML
+    public void addUser() throws SQLException {
+        try{
+            User user = getFromField();
+            db.insertUser(user);
+            getData();
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi CSDL");
+            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
+            a.setHeaderText("Lỗi SQL");
+            a.show();
+        }
+        clearBoxes();
+    }
+    @FXML
+    public void deleteUser() throws SQLException{
+        try{
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setTitle("Xác nhận xoá");
+            a.setContentText("Bạm có muốn xoá người dùng " + String.valueOf(ID) + "?");
+            a.setHeaderText("Xoá người dùng?");
+            a.showAndWait();
+            if(a.getResult() == ButtonType.OK){
+                db.removeUser(ID);
+                getData();
+            }
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Lỗi CSDL");
+            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
+            a.setHeaderText("Lỗi SQL");
+            a.show();
+        }
     }
 }

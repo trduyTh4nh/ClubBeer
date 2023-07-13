@@ -15,8 +15,8 @@
                      <children>
                         <HBox prefWidth="311.0" spacing="10.0">
                            <children>
-                              <TextField prefHeight="37.0" prefWidth="231.0" promptText="Tìm kiếm nhân viên" />
-                              <Button defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Tìm kiếm" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="search_employ" prefHeight="37.0" prefWidth="231.0" promptText="Tìm kiếm nhân viên" />
+                              <Button defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchUser" text="Tìm kiếm" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getData" text="Hiển thị data" VBox.vgrow="ALWAYS" />
@@ -28,12 +28,12 @@
                         </Label>
                         <HBox prefWidth="200.0" spacing="5.0">
                            <children>
-                               <TextField prefWidth="311.0" promptText="ID">
+                               <TextField fx:id="field_id" prefWidth="311.0" promptText="ID">
                                    <padding>
                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                    </padding>
                               </TextField>
-                              <TextField prefWidth="311.0" promptText="Họ tên">
+                              <TextField fx:id="field_name" prefWidth="311.0" promptText="Họ tên">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
@@ -42,12 +42,12 @@
                         </HBox>
                         <HBox layoutX="25.0" layoutY="140.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <TextField prefWidth="311.0" promptText="Tuổi">
+                              <TextField fx:id="field_age" prefWidth="311.0" promptText="Tuổi">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefWidth="311.0" promptText="Email">
+                              <TextField fx:id="field_email" prefWidth="311.0" promptText="Email">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
@@ -56,19 +56,19 @@
                         </HBox>
                         <HBox layoutX="25.0" layoutY="182.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <TextField prefWidth="311.0" promptText="Mật khẩu">
+                              <PasswordField fx:id="field_password" prefWidth="311.0" promptText="Mật khẩu">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
-                              </TextField>
-                              <TextField prefWidth="311.0" promptText="SĐT">
+                              </PasswordField>
+                              <TextField fx:id="field_phone" prefWidth="311.0" promptText="SĐT">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
                            </children>
                         </HBox>
-                         <TextField prefWidth="311.0" promptText="Vai trò">
+                         <TextField fx:id="field_role" prefWidth="311.0" promptText="Vai trò">
                              <VBox.margin>
                                  <Insets />
                              </VBox.margin>
@@ -77,11 +77,12 @@
                              </padding></TextField>
                         <HBox prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Thêm" HBox.hgrow="ALWAYS" />
-                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Xóa" HBox.hgrow="ALWAYS" />
+                              <Button onAction="#addUser" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Thêm" HBox.hgrow="ALWAYS" />
+                              <Button layoutX="10.0" onAction="#deleteUser" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Xóa" HBox.hgrow="ALWAYS" />
                               <Button layoutX="62.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Sửa" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
+                        <Button onAction="#clearBoxes" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clear ô text" HBox.hgrow="ALWAYS" />
                      </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -90,15 +91,15 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView onKeyPressed="#keyboardItem" onMouseClicked="#clickItem" fx:id="tableUser" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="39.0" text="ID" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="135.0" text="Tên" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="109.0" text="Tuổi" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="134.0" text="Email" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="SĐT" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="194.0" text="Password" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="Role" />
+                        <TableColumn fx:id="col_id" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="39.0" text="ID" />
+                        <TableColumn fx:id="col_name" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="135.0" text="Tên" />
+                        <TableColumn fx:id="col_age" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="109.0" text="Tuổi" />
+                        <TableColumn fx:id="col_email" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="134.0" text="Email" />
+                        <TableColumn fx:id="col_phone" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="SĐT" />
+                        <TableColumn fx:id="col_psswd" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="194.0" text="Password" />
+                        <TableColumn fx:id="col_role" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="97.0" text="Role" />
                      </columns>
                   </TableView>
                </children></AnchorPane>

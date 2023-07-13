@@ -7,7 +7,7 @@ import java.util.Properties;
 public class DB {
     private static final String URL = "jdbc:postgresql://localhost/clubbeer";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "SuperPassword";
+    private static final String PASSWORD = "1234";
 
     private Statement st;
     private Properties props;
@@ -33,5 +33,11 @@ public class DB {
     public ResultSet getUser() throws SQLException {
         return st.executeQuery("SELECT * FROM USERS");
     }
-
+    public ResultSet getUserbyKeyword(String keyword) throws SQLException {
+        return st.executeQuery("SELECT * FROM USERS WHERE NAME LIKE '" + keyword + "%'");
+    }
+    public void removeUser(int id) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM users WHERE id = " + String.valueOf(id));
+        statement.execute();
+    }
 }

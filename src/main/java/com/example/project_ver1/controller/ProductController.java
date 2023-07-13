@@ -1,6 +1,7 @@
 package com.example.project_ver1.controller;
 
 import com.example.project_ver1.class_model.Product;
+import com.example.project_ver1.class_model.User;
 import com.example.project_ver1.model.DB;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -15,7 +16,9 @@ import javafx.util.Callback;
 
 import java.io.LineNumberInputStream;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -26,7 +29,7 @@ public class ProductController implements Initializable {
     public TableColumn<Product, String> motasp;
     public TableColumn<Product, String> loaisp;
     public TableColumn<Product, String> giasp;
-
+    DB db;
 
     @FXML
     TextField id_id;
@@ -45,7 +48,7 @@ public class ProductController implements Initializable {
 
 
     public ProductController() throws SQLException {
-
+        db = new DB();
     }
 
 
@@ -72,4 +75,5 @@ public class ProductController implements Initializable {
         id_cate.clear();
         id_price.clear();
     }
+
 }
