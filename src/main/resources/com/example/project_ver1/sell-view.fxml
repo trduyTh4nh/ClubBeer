@@ -2,29 +2,45 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.SellController">
-   <children>
-      <Pane layoutY="59.0" prefHeight="653.0" prefWidth="306.0" style="-fx-background-color: #9697e9;">
-         <children>
-            <TextField layoutX="37.0" layoutY="25.0" prefHeight="25.0" prefWidth="179.0" promptText="Tìm kiếm hóa đơn" />
-            <Button layoutX="126.0" layoutY="71.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Tìm kiếm" />
-            <Separator layoutX="4.0" layoutY="131.0" prefHeight="5.0" prefWidth="298.0" />
-         </children></Pane>
-      <Pane prefHeight="58.0" prefWidth="1155.0" style="-fx-background-color: #002d40;">
-         <children>
-            <Button layoutX="15.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
-         </children></Pane>
-      <TableView layoutX="306.0" layoutY="59.0" prefHeight="200.0" prefWidth="757.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="ID Hóa Đơn " />
-          <TableColumn prefWidth="113.20001220703125" text="Ngày Lập" />
-            <TableColumn prefWidth="104.39999389648438" text="Mã sản phẩm" />
-            <TableColumn prefWidth="145.79998779296875" text="Tên sản phẩm" />
-            <TableColumn prefWidth="108.0" text="Số Lượng" />
-            <TableColumn prefWidth="104.0" text="Đơn giá" />
-            <TableColumn prefWidth="100.60003662109375" text="Tổng Tiền" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
+    <children>
+        <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Label layoutX="374.0" layoutY="142.0" />
+        <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
+        <TableView fx:id="tableProduct" layoutX="183.0" layoutY="59.0" onMouseClicked="#ClickItems" prefHeight="657.0" prefWidth="973.0" AnchorPane.topAnchor="54.0">
+            <columns>
+                <TableColumn id="idProduct" fx:id="masp" prefWidth="194.0" text="Mã sản phẩm" />
+                <TableColumn id="nameProduct" fx:id="tensp" prefWidth="194.0" text="Tên sản phẩm" />
+                <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="194.0" text="Loại sản phẩm" />
+                <TableColumn id="priceProduct" fx:id="giasp" prefWidth="194.0" text="Giá" />
+                <TableColumn id="desProduct" fx:id="motasp" prefWidth="194.0" text="Mô tả" />
+            </columns>
+        </TableView>
+        <Pane layoutY="54.0" prefHeight="200.0" prefWidth="184.0" style="-fx-background-color: #9697e9;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
+            <children>
+                <TextField fx:id="id_search" layoutX="18.0" layoutY="28.0" promptText="Tìm kiếm sản phẩm" />
+                <Button layoutX="89.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="25.0" prefWidth="80.0" text="Tìm kiếm" />
+                <Separator layoutX="-4.0" layoutY="111.0" prefHeight="5.0" prefWidth="188.0" />
+                <Label layoutX="7.0" layoutY="137.0" prefHeight="21.0" prefWidth="176.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <VBox layoutX="20.0" layoutY="191.0" prefHeight="210.0" prefWidth="149.0" spacing="20.0">
+                    <children>
+                        <TextField fx:id="id_id" promptText="Mã sản phẩm" />
+                        <TextField fx:id="id_name" promptText="Tên sản phẩm" />
+                        <TextField fx:id="id_cate" promptText="Loại sản phẩm" />
+                        <TextField fx:id="id_price" promptText="Giá" />
+                        <TextField fx:id="id_desc" promptText="Mô tả" />
+                        <Button fx:id="btn_addProduct" mnemonicParsing="false" onAction="#addProduct" text="Thêm sản Phẩm" />
+                        <Button fx:id="id_addProduct" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="102.0" text="Xóa sản phẩm" />
+                        <Button fx:id="editProduct" mnemonicParsing="false" onAction="#edtProduct" prefHeight="25.0" prefWidth="102.0" text="Sửa sản phẩm" />
+                    </children></VBox>
+                <Button fx:id="btnShow" layoutX="20.0" layoutY="67.0" mnemonicParsing="false" onAction="#getData" prefHeight="25.0" prefWidth="64.0" text="Hiển thị" />
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>
