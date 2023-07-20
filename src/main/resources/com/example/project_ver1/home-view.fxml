@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.HomeController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: #103460;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.HomeController">
    <children>
       <AnchorPane prefHeight="46.0" prefWidth="960.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -17,7 +17,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white;">
+      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white; -fx-opacity: 0;">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="44.0" spacing="28.0" style="-fx-background-color: white;" AnchorPane.topAnchor="20.0">
                <children>
@@ -50,43 +50,38 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="923.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+      <AnchorPane layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="1155.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <children>
-            <Pane layoutX="-30.0" layoutY="-137.0" prefHeight="666.0" prefWidth="953.0" style="-fx-background-color: #d9ecf2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="drawerPane" layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="151.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="46.0">
-         <children>
-            <VBox layoutX="6.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="646.0" prefWidth="151.0" spacing="21.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
-               <children>
-                  <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="179.0" text="Dashboard">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#product" prefHeight="38.0" prefWidth="179.0" text="Product">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" maxWidth="1.7976931348623157E308" onAction="#employ" prefHeight="38.0" prefWidth="179.0" text="Employee">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="38.0" prefWidth="119.0" text="Order">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="202.0" maxWidth="1.7976931348623157E308" onAction="#logout" prefHeight="38.0" prefWidth="120.0" text="Logout">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-         </children>
-      </AnchorPane>
+            <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" layoutX="39.0" layoutY="472.0" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-color: none;" text="Home">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="274.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#product" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Product">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="510.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#employ" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-radius: 100;" text="Employee">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="734.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Order">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="954.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#logout" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Logout">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="321.0" layoutY="122.0" style="-fx-border-color: yellow; -fx-border-width: 3;" text="CLUB BEER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="88.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

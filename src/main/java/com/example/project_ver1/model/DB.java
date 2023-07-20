@@ -1,4 +1,5 @@
 package com.example.project_ver1.model;
+import com.example.project_ver1.class_model.Order;
 import com.example.project_ver1.class_model.Product;
 import com.example.project_ver1.class_model.User;
 
@@ -77,5 +78,9 @@ public class DB {
         statement.execute();
     }
 
+
+    public void insertOrder(Order order){
+
+    }
 
 }
