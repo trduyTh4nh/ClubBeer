@@ -4,43 +4,201 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.OrderController">
     <children>
-        <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Label layoutX="374.0" layoutY="142.0" />
+        <Pane layoutY="1.0" prefHeight="50.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" />
         <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
-        <TableView fx:id="tableProduct" layoutX="183.0" layoutY="59.0" onMouseClicked="#ClickItems" prefHeight="657.0" prefWidth="973.0" AnchorPane.topAnchor="54.0">
-            <columns>
-                <TableColumn id="idProduct" fx:id="masp" prefWidth="194.0" text="Mã sản phẩm" />
-                <TableColumn id="nameProduct" fx:id="tensp" prefWidth="194.0" text="Tên sản phẩm" />
-                <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="194.0" text="Loại sản phẩm" />
-                <TableColumn id="priceProduct" fx:id="giasp" prefWidth="194.0" text="Giá" />
-                <TableColumn id="desProduct" fx:id="motasp" prefWidth="194.0" text="Mô tả" />
-            </columns>
-        </TableView>
-        <Pane layoutY="54.0" prefHeight="200.0" prefWidth="184.0" style="-fx-background-color: #9697e9;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
+        <GridPane layoutX="27.0" layoutY="72.0" prefHeight="344.0" prefWidth="682.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
+            </rowConstraints>
             <children>
-                <TextField fx:id="id_search" layoutX="18.0" layoutY="28.0" promptText="Tìm kiếm sản phẩm" />
-                <Button layoutX="89.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="25.0" prefWidth="80.0" text="Tìm kiếm" />
-                <Separator layoutX="-4.0" layoutY="111.0" prefHeight="5.0" prefWidth="188.0" />
-                <Label layoutX="7.0" layoutY="137.0" prefHeight="21.0" prefWidth="176.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
+                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                    <children>
+                        <Label text="Heineken" />
+                    </children></HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Budweiser" />
+                    </children></HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Sài Gòn Xưa" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Bia 333" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="4">
+                    <children>
+                        <Label text="Bia Tiger" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="241.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="5">
+                    <children>
+                        <Label text="Sư tử trắng" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
+                    <children>
+                        <Label text="Sangria" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="124.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Pina Colada" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Pisco Sour" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Margarita" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <Label text="Mojito" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <children>
+                        <Label text="Pimm's" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2">
+                    <children>
+                        <Label text="Whisky" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Brandy" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Gin" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Vodka" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <children>
+                        <Label text="Chivas" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                    <children>
+                        <Label text="Rum" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="238.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3">
+                    <children>
+                        <Label text="Whisky" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Heineken" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Heineken" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Heineken" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                    <children>
+                        <Label text="Heineken" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                    <children>
+                        <Label text="Heineken" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="125.0" spacing="5.0" GridPane.columnIndex="4">
+                    <children>
+                        <Label text="Diry Martini" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Blood Maria" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Tequira Sunris" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Bule Hawaii" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                    <children>
+                        <Label text="Zomebie" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="128.0" spacing="5.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                    <children>
+                        <Label text="Pina" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+        <Pane layoutX="719.0" layoutY="40.0" prefHeight="664.0" prefWidth="436.0" style="-fx-background-color: #9697e9;">
+            <children>
+                <Label layoutX="59.0" layoutY="34.0" text="Thông Tin Hóa Đơn Order">
                     <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <VBox layoutX="20.0" layoutY="191.0" prefHeight="210.0" prefWidth="149.0" spacing="20.0">
-                    <children>
-                        <TextField fx:id="id_id" promptText="Mã sản phẩm" />
-                        <TextField fx:id="id_name" promptText="Tên sản phẩm" />
-                        <TextField fx:id="id_cate" promptText="Loại sản phẩm" />
-                        <TextField fx:id="id_price" promptText="Giá" />
-                        <TextField fx:id="id_desc" promptText="Mô tả" />
-                        <Button fx:id="btn_addProduct" mnemonicParsing="false" onAction="#addProduct" text="Thêm sản Phẩm" />
-                        <Button fx:id="id_addProduct" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="102.0" text="Xóa sản phẩm" />
-                        <Button fx:id="editProduct" mnemonicParsing="false" onAction="#edtProduct" prefHeight="25.0" prefWidth="102.0" text="Sửa sản phẩm" />
-                    </children></VBox>
-                <Button fx:id="btnShow" layoutX="20.0" layoutY="67.0" mnemonicParsing="false" onAction="#getData" prefHeight="25.0" prefWidth="64.0" text="Hiển thị" />
-            </children>
-        </Pane>
+                <TextField layoutX="107.0" layoutY="130.0" prefHeight="25.0" prefWidth="138.0" text="Tên SP" />
+                <TextField layoutX="14.0" layoutY="130.0" prefHeight="26.0" prefWidth="75.0" text="SL" />
+                <TextField layoutX="352.0" layoutY="131.0" prefHeight="25.0" prefWidth="75.0" text="Đơn giá" />
+                <TextField layoutX="13.0" layoutY="173.0" prefHeight="26.0" prefWidth="75.0" />
+                <TextField layoutX="107.0" layoutY="174.0" prefHeight="25.0" prefWidth="138.0" />
+                <TextField layoutX="259.0" layoutY="174.0" prefHeight="25.0" prefWidth="82.0" />
+                <TextField layoutX="13.0" layoutY="244.0" prefHeight="25.0" prefWidth="93.0" text="Tổng Số lượng" />
+                <Button layoutX="154.0" layoutY="402.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="128.0" text="Hoàn thành " />
+                <Button layoutX="127.0" layoutY="479.0" mnemonicParsing="false" text="Xuất Hóa Đơn">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <TextField layoutX="262.0" layoutY="131.0" prefHeight="25.0" prefWidth="75.0" text="Size" />
+                <TextField layoutX="352.0" layoutY="174.0" prefHeight="25.0" prefWidth="75.0" text="Đơn giá" />
+                <TextField layoutX="355.0" layoutY="244.0" prefHeight="25.0" prefWidth="75.0" text="Tổng tiền" />
+            </children></Pane>
     </children>
 </AnchorPane>
