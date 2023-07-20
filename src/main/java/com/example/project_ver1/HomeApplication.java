@@ -27,16 +27,14 @@ public class HomeApplication extends Application {
         s = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("home-view.fxml"));
         FXMLLoader login = new FXMLLoader(HomeApplication.class.getResource("login-view.fxml"));
-        FXMLLoader productView = new FXMLLoader(HomeApplication.class.getResource("product-view.fxml"));
+        FXMLLoader productView = new FXMLLoader(HomeApplication.class.getResource("sell-view.fxml"));
         FXMLLoader orderView = new FXMLLoader(HomeApplication.class.getResource("order-view.fxml"));
         FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
-
         Scene sceneLogin = new Scene(login.load());
         Scene sceneMain = new Scene(fxmlLoader.load());
         Scene sceneProduct = new Scene(productView.load());
         Scene sceneOrder = new Scene(orderView.load());
         Scene sceneEmploy = new Scene(employView.load());
-
         stage.setResizable(false);
         stage.setTitle("Club beer!");
         stage.setScene(sceneProduct);
@@ -81,8 +79,8 @@ public class HomeApplication extends Application {
 
     }
     public static void setBackbutton(Scene scene, String res){
-        Button buttonback1 = (Button) scene.lookup("#back");
-        buttonback1.setOnAction(result -> {
+        Button buttonback = (Button) scene.lookup("#back");
+        buttonback.setOnAction(result -> {
             try {
                 changeStage(res);
             } catch (IOException e) {

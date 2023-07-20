@@ -1,8 +1,11 @@
 package com.example.project_ver1.controller;
 
 import com.example.project_ver1.class_model.Product;
+import com.example.project_ver1.class_model.Role;
 import com.example.project_ver1.class_model.User;
 import com.example.project_ver1.model.DB;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -19,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class EmployController implements Initializable {
     private ArrayList<User> u;
+    @FXML private ComboBox<Role> cbRole;
     private int ID;
     @FXML
     private TextField field_id, field_name, field_age, field_email, field_phone, field_role;
@@ -48,6 +52,10 @@ public class EmployController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             getData();
+            ArrayList<Role> arr = getRoles();
+            ObservableList<Role> combobox = FXCollections.observableList(arr);
+            cbRole.setItems(combobox);
+            cbRole.getSelectionModel().select(combobox.get(0));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +97,7 @@ public class EmployController implements Initializable {
         ArrayList<User> usrs = new ArrayList<>();
         ResultSet r = db.getUser();
         while(r.next()){
-            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getInt(7)));
+            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getString(8)));
         }
         return usrs;
     }
@@ -97,23 +105,28 @@ public class EmployController implements Initializable {
         ArrayList<User> usrs = new ArrayList<>();
         ResultSet r = db.getUserbyKeyword(keyword);
         while(r.next()){
-            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getInt(7)));
+            usrs.add(new User(r.getInt(1), r.getString(2), r.getInt(3), r.getString(4), r.getString(5), r.getString(6), r.getString(8)));
         }
         return usrs;
     }
     @FXML
-    public void clickItem(){
+    public void clickItem() throws SQLException {
         getItem();
     }
     @FXML
-    public void keyboardItem(KeyEvent e){
+    public void keyboardItem(KeyEvent e) throws SQLException {
         if(e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.UP){
             getItem();
         }
     }
 
-    private void getItem() {
+    private void getItem() throws SQLException {
+
         User user = tableUser.getSelectionModel().getSelectedItem();
+        if(user == null){
+            return;
+        }
+        Role r = db.getRole(user.getRole());
         ID = user.getId();
         field_name.setText(user.getName());
         field_id.setText(String.valueOf(user.getId()));
@@ -122,10 +135,12 @@ public class EmployController implements Initializable {
         field_email.setText(String.valueOf(user.getEmail()));
         field_password.setText(String.valueOf(user.getPassword()));
         field_phone.setText(user.getPhone());
-        field_role.setText(String.valueOf(user.getRole()));
+        if(user.getRole() != "null"){
+            cbRole.getSelectionModel().select(r);
+        }
     }
     @FXML
-    public void clearBoxes(){
+    public void clearBoxes() throws SQLException {
         field_name.setText("");
         field_id.setText("");
         field_id.setDisable(false);
@@ -133,7 +148,7 @@ public class EmployController implements Initializable {
         field_email.setText(String.valueOf(""));
         field_password.setText(String.valueOf(""));
         field_phone.setText("");
-        field_role.setText(String.valueOf(""));
+        cbRole.getSelectionModel().select(db.getRole("nhanv"));
     }
     public User getFromField(){
         User user = new User();
@@ -143,7 +158,7 @@ public class EmployController implements Initializable {
         user.setEmail(field_email.getText());
         user.setPassword(field_password.getText());
         user.setPhone(field_phone.getText());
-        user.setRole(Integer.parseInt(field_role.getText()));
+        user.setRole(cbRole.getSelectionModel().getSelectedItem().getId());
         return user;
     }
     @FXML
@@ -155,7 +170,7 @@ public class EmployController implements Initializable {
         } catch (SQLException e){
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Lỗi CSDL");
-            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getSQLState());
+            a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getMessage());
             a.setHeaderText("Lỗi SQL");
             a.show();
         }
@@ -180,6 +195,14 @@ public class EmployController implements Initializable {
             a.setHeaderText("Lỗi SQL");
             a.show();
         }
+    }
+    private ArrayList<Role> getRoles() throws SQLException {
+        ArrayList<Role> roles = new ArrayList<>();
+        ResultSet r = db.getRoles();
+        while (r.next()){
+            roles.add(new Role(r.getString(1), r.getString(2), r.getString(3)));
+        }
+        return roles;
     }
 
 }
