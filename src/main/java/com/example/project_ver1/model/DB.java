@@ -1,6 +1,6 @@
 package com.example.project_ver1.model;
-import com.example.project_ver1.class_model.Order;
 import com.example.project_ver1.class_model.Product;
+import com.example.project_ver1.class_model.Role;
 import com.example.project_ver1.class_model.User;
 
 import java.sql.*;
@@ -23,10 +23,10 @@ public class DB {
 
         st = conn.createStatement();
     }
-    public int insertUser(User user) throws SQLException{
-        PreparedStatement test =  conn.prepareStatement(String.format("INSERT INTO USERS VALUES " +
-                "(%d, '%s', %d, '%s', '%s', '%s' , %d)",user.getId(), user.getName(), user.getAge(), user.getEmail(), user.getPassword(), user.getPhone(), user.getRole()));
-        return test.executeUpdate();
+    public void insertUser(User user) throws SQLException{
+        PreparedStatement test =  conn.prepareStatement(String.format("INSERT INTO USERS (id, name, age, email, password, phone, role) VALUES " +
+                "(%d, '%s', %d, '%s', '%s', '%s', '%s')",user.getId(), user.getName(), user.getAge(), user.getEmail(), user.getPassword(), user.getPhone(), user.getRole()));
+        test.executeUpdate();
     }
     public boolean loginFunc(String email, String password) throws SQLException {
         ResultSet statement =  st.executeQuery(String.format("SELECT * FROM USERS WHERE email  = '%s' and password = '%s'", email, password));
@@ -77,10 +77,14 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM SanPham WHERE masp = %d", ID));
         statement.execute();
     }
-
-
-    public void insertOrder(Order order){
-
+    public ResultSet getRoles() throws SQLException {
+        return st.executeQuery("SELECT * FROM ROLE");
     }
-
+    public Role getRole(String id) throws SQLException{
+        ResultSet set = st.executeQuery("SELECT * FROM ROLE WHERE id = '" + id + "'");
+        if (set.next()){
+            return new Role(set.getString(1), set.getString(2), set.getString(3));
+        };
+        return new Role("err", "null", "null");
+    }
 }
