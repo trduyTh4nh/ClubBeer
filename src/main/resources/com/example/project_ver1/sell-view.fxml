@@ -25,246 +25,15 @@
                 <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
             </rowConstraints>
-            <children>
-                <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;">
-                    <children>
-                        <Label text="Heineken">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children></HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.rowIndex="1">
-                    <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Budweiser">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children></HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.rowIndex="2">
-                    <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Old SaiGon">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.rowIndex="3">
-                    <children>
-                        <Label text="Bia 333">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.rowIndex="4">
-                    <children>
-                        <Label text="Bia Tiger">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="241.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.rowIndex="5">
-                    <children>
-                        <Label text="White Tiger">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1">
-                    <children>
-                        <Label text="Sangria">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="124.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Pina Colada">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <children>
-                        <Label text="Pisco Sour">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                    <children>
-                        <Label text="Margarita">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <children>
-                        <Label text="Mojito">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                    <children>
-                        <Label text="Pimm's">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2">
-                    <children>
-                        <Label text="Coctail">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Brandy">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                    <children>
-                        <Label text="Gin">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                    <children>
-                        <Label text="Vodka">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                    <children>
-                        <Label text="Chivas">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                    <children>
-                        <Label text="Rum">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="238.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3">
-                    <children>
-                        <Label text="Whisky">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Bia 555">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                    <children>
-                        <Label text="SaiGon Special">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                    <children>
-                        <Label text="Sapporo">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                    <children>
-                        <Label text="Champage">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                    <children>
-                        <Label text="Corona">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="125.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4">
-                    <children>
-                        <Label text="Diry Martini">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Blood Maria">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                    <children>
-                        <Label text="Tequira Sunris">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                    <children>
-                        <Label text="Bule Hawaii">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                    <children>
-                        <Label text="Zomebie">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="128.0" spacing="5.0" style="-fx-background-color: #fbf3d5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                    <children>
-                        <Label text="Pina">
-                     <font>
-                        <Font name="Bodoni MT Bold" size="16.0" />
-                     </font></Label>
-                    </children>
-                </HBox>
-            </children>
+         <children>
+
+            <ToggleButton mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Gin" />
+            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Whisky" GridPane.rowIndex="1" />
+            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Champane" GridPane.rowIndex="2" />
+            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Tiger" GridPane.rowIndex="3" />
+            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Corana" GridPane.rowIndex="4" />
+            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="133.0" text="Pimm's" GridPane.rowIndex="5" />
+         </children>
         </GridPane>
         <Pane layoutX="719.0" layoutY="51.0" prefHeight="664.0" prefWidth="436.0" style="-fx-background-color: #9697e9;">
             <children>
@@ -273,22 +42,48 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <TextField layoutX="107.0" layoutY="130.0" prefHeight="25.0" prefWidth="138.0" text="Tên SP" />
-                <TextField layoutX="14.0" layoutY="130.0" prefHeight="26.0" prefWidth="75.0" text="SL" />
-                <TextField layoutX="352.0" layoutY="131.0" prefHeight="25.0" prefWidth="75.0" text="Đơn giá" />
-                <TextField layoutX="13.0" layoutY="173.0" prefHeight="26.0" prefWidth="75.0" />
-                <TextField layoutX="107.0" layoutY="174.0" prefHeight="25.0" prefWidth="138.0" />
-                <TextField layoutX="259.0" layoutY="174.0" prefHeight="25.0" prefWidth="82.0" />
-                <TextField layoutX="13.0" layoutY="244.0" prefHeight="25.0" prefWidth="93.0" text="Tổng Số lượng" />
-                <Button layoutX="154.0" layoutY="402.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="128.0" text="Hoàn thành " />
-                <Button layoutX="127.0" layoutY="479.0" mnemonicParsing="false" text="Xuất Hóa Đơn">
+                <TextField layoutX="161.0" layoutY="169.0" prefHeight="26.0" prefWidth="75.0" />
+                <TextField layoutX="245.0" layoutY="170.0" prefHeight="25.0" prefWidth="82.0" />
+                <Button layoutX="158.0" layoutY="440.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="128.0" text="Hoàn thành " />
+                <Button layoutX="127.0" layoutY="502.0" mnemonicParsing="false" text="Xuất Hóa Đơn">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <TextField layoutX="262.0" layoutY="131.0" prefHeight="25.0" prefWidth="75.0" text="Size" />
-                <TextField layoutX="352.0" layoutY="174.0" prefHeight="25.0" prefWidth="75.0" text="Đơn giá" />
-                <TextField layoutX="355.0" layoutY="244.0" prefHeight="25.0" prefWidth="75.0" text="Tổng tiền" />
+                <TextField layoutX="335.0" layoutY="170.0" prefHeight="25.0" prefWidth="75.0" />
+                <TextField layoutX="346.0" layoutY="344.0" prefHeight="25.0" prefWidth="75.0" />
+            <ListView layoutX="14.0" layoutY="169.0" prefHeight="200.0" prefWidth="138.0" />
+            <Label layoutX="169.0" layoutY="146.0" text="Số lượng ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="274.0" layoutY="146.0" text="Size">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="346.0" layoutY="146.0" text="Đơn giá">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="353.0" layoutY="323.0" text="Tổng Tiền">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="227.0" layoutY="323.0" text="Số Hóa Đơn">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="222.0" layoutY="344.0" prefHeight="25.0" prefWidth="83.0" />
+            <Label layoutX="18.0" layoutY="146.0" text="Danh Sách sản phẩm">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
             </children></Pane>
     </children>
 </AnchorPane>
