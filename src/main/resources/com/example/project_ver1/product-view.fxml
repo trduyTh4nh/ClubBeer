@@ -14,7 +14,7 @@
          </children></Pane>
       <Pane prefHeight="58.0" prefWidth="1155.0" style="-fx-background-color: #002d40;">
          <children>
-            <Button layoutX="15.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="back" layoutX="15.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
          </children></Pane>
       <TableView layoutX="306.0" layoutY="59.0" prefHeight="200.0" prefWidth="757.0">
          <columns>
@@ -29,4 +29,3 @@
       </TableView>
    </children>
 </AnchorPane>
-

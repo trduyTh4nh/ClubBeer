@@ -38,7 +38,7 @@ public class HomeApplication extends Application {
         Scene sceneEmploy = new Scene(employView.load());
 
         stage.setResizable(false);
-        stage.setTitle("Quản lý Clubbeer");
+        stage.setTitle("Club beer!");
         stage.setScene(sceneProduct);
         stage.show();
 
@@ -78,7 +78,6 @@ public class HomeApplication extends Application {
             stage.setScene(sceneMain);
         });
         Button btnLogout = (Button) sceneMain.lookup("#id_btnLogout");
-        stage.getIcons().add(new Image(getClass().getResource("club-beer-logo.png").toExternalForm()));
 
     }
     public static void setBackbutton(Scene scene, String res){
