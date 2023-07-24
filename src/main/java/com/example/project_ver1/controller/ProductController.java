@@ -124,18 +124,21 @@ public class ProductController implements Initializable {
 
     @FXML
     private void ClickItems(){
-            ID = tableProduct.getSelectionModel().getSelectedItem().getMaSP();
-            String tensp = tableProduct.getSelectionModel().getSelectedItem().getTenSP();
-            String masp = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getMaSP());
-            String mota = tableProduct.getSelectionModel().getSelectedItem().getMoTa();
-            String loaiSp = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getMaLoaiSp());
-            String gia = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getGia());
+            if(tableProduct.getSelectionModel().getSelectedItem() != null){
+                ID = tableProduct.getSelectionModel().getSelectedItem().getMaSP();
+                String tensp = tableProduct.getSelectionModel().getSelectedItem().getTenSP();
+                String masp = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getMaSP());
+                String mota = tableProduct.getSelectionModel().getSelectedItem().getMoTa();
+                String loaiSp = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getMaLoaiSp());
+                String gia = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getGia());
 
-            id_id.setText(masp);
-            id_name.setText(tensp);
-            id_desc.setText(mota);
-            id_cate.setText(loaiSp);
-            id_price.setText(gia);
+                id_id.setText(masp);
+                id_name.setText(tensp);
+                id_desc.setText(mota);
+                id_cate.setText(loaiSp);
+                id_price.setText(gia);
+            }
+
     }
 
     @FXML

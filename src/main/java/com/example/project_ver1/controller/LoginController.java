@@ -28,6 +28,7 @@ public class LoginController {
     @FXML
     private Button btn_login;
 
+    private LoginDetails instance = LoginDetails.INSTANCE;
     DB db = new DB();
     public LoginController() throws SQLException, IOException {
 

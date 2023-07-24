@@ -44,7 +44,7 @@ public class HomeApplication extends Application {
 
         stage.setResizable(false);
         stage.setTitle("Club beer!");
-        stage.setScene(sceneSell);
+        stage.setScene(sceneLogin);
         stage.show();
 
         DB dbHelper = new DB();
@@ -141,13 +141,15 @@ public class HomeApplication extends Application {
     }
     public static void setBackbutton(Scene scene, String res){
         Button buttonback1 = (Button) scene.lookup("#back");
-        buttonback1.setOnAction(result -> {
-            try {
-                changeStage(res);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        if(buttonback1!= null){
+            buttonback1.setOnAction(result -> {
+                try {
+                    changeStage(res);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
 
     }
     public static void setImages(Scene sceneMain) throws FileNotFoundException {

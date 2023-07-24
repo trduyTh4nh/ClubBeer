@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: #103460;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.HomeController">
@@ -77,9 +78,30 @@
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="321.0" layoutY="122.0" style="-fx-border-color: yellow; -fx-border-width: 3;" text="CLUB BEER" textFill="WHITE">
+            <Label layoutX="321.0" layoutY="122.0" style="-fx-border-color: organe; -fx-border-color: ; -fx-border-width: 3;" text="CLUB BEER">
                <font>
                   <Font name="Arial Bold" size="88.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9640287756919861" green="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="725.0" layoutY="223.0" text="Born to drink" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
             </Label>
          </children></AnchorPane>

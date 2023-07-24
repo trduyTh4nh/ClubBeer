@@ -1,16 +1,14 @@
 package com.example.project_ver1.class_model;
 
-import java.util.Date;
-
 public class Order {
     private int MaHD;
-    private Date NgayLap;
-    private int TongTien;
+    private String NgayLap;
 
-    public Order(int maHD, Date ngayLap, int tongTien) {
+
+
+    public Order(int maHD, String ngayLap) {
         MaHD = maHD;
         NgayLap = ngayLap;
-        TongTien = tongTien;
     }
 
     public int getMaHD() {
@@ -21,20 +19,12 @@ public class Order {
         MaHD = maHD;
     }
 
-    public Date getNgayLap() {
+        public String getNgayLap() {
         return NgayLap;
     }
 
-    public void setNgayLap(Date ngayLap) {
+    public void setNgayLap(String ngayLap) {
         NgayLap = ngayLap;
-    }
-
-    public int getTongTien() {
-        return TongTien;
-    }
-
-    public void setTongTien(int tongTien) {
-        TongTien = tongTien;
     }
 
 
