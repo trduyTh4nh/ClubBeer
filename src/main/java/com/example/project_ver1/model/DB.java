@@ -1,8 +1,5 @@
 package com.example.project_ver1.model;
-import com.example.project_ver1.class_model.Order;
-import com.example.project_ver1.class_model.Product;
-import com.example.project_ver1.class_model.Role;
-import com.example.project_ver1.class_model.User;
+import com.example.project_ver1.class_model.*;
 
 import java.sql.*;
 import java.util.Properties;
@@ -108,4 +105,16 @@ public class DB {
         };
         return new Role("err", "null", "null");
     }
+    public void inserdOrderDetail(OrderDeltail orderDeltail) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("INSERT INTO CTHD (ID, MaSP, soluong, size) VALUES (%d, %d, %d, '%s')", orderDeltail.getIdHD(),orderDeltail.getIdsp(),orderDeltail.getSoluong(), orderDeltail.getSize()));
+        statement.execute();
+    }
+
+    public ResultSet getOrderdetail() throws SQLException {
+        return st.executeQuery("SELECT * FROM CTHD");
+    }
+
+//    public  getAllOrderDetail(){
+//
+//    }
 }

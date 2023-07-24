@@ -1,16 +1,15 @@
 package com.example.project_ver1.controller;
 
 import com.example.project_ver1.class_model.Order;
+import com.example.project_ver1.class_model.OrderDeltail;
 import com.example.project_ver1.class_model.Product;
 import com.example.project_ver1.model.DB;
 import com.example.project_ver1.model.LoginDetails;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
@@ -40,12 +39,28 @@ public class OrderController implements Initializable {
     ComboBox<String> id_size;
     @FXML
     Button id_addProduct;
+
+    @FXML
+    TableView<OrderDeltail> tb_ordetail;
+    @FXML
+    TableColumn<OrderDeltail, Integer> id_colSoCT;
+    @FXML
+    TableColumn<OrderDeltail, Integer> id_ColSoHD;
+    @FXML
+    TableColumn<OrderDeltail, Integer> id_ColMaSp;
+    @FXML
+    TableColumn<OrderDeltail, Integer> id_ColSoLuong;
+    @FXML
+    TableColumn<OrderDeltail, String> id_ColSize;
+
     private LoginDetails loginDetails = LoginDetails.INSTANCE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         id_size.setItems(FXCollections.observableArrayList("S", "M", "L", "XL"));
         id_addProduct.setDisable(true);
+        initData();
+
         try {
             db = new DB();
             prods = new ArrayList<>();
@@ -86,6 +101,12 @@ public class OrderController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        try {
+            getData();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void getProds() throws SQLException{
         ResultSet product = db.getProduct();
@@ -103,17 +124,69 @@ public class OrderController implements Initializable {
         String nameProduct = id_tenSP.getText().toString();
         String giaProduct = id_gia.getText().toString();
         String soluongProduct = id_Soluong.getText().toString();
-        String Size = id_size.getItems().toString();
-
+        String Size = id_size.getValue();
         LocalDateTime date = LocalDateTime.now().plusDays(1);
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
-
+        System.out.println(Size);
         String dt = format.format(date);
 
         Order order = new Order(Integer.parseInt(idHD), dt);
         db.insertOrder(order);
 
 
+    }
+    private ArrayList<OrderDeltail> arrayListDetail;
+    public void addProduct() throws SQLException {
+        arrayListDetail = new ArrayList<>();
+        db = new DB();
+        String idHD = id_SoHoaDon.getText().toString();
+        String nameProduct = id_tenSP.getText().toString();
+        String giaProduct = id_gia.getText().toString();
+        String soluongProduct = id_Soluong.getText().toString();
+        String Size = id_size.getValue();
+        System.out.println(Size);
+        OrderDeltail orderDeltail = new OrderDeltail(0, Integer.parseInt(idHD), ID, Integer.parseInt(soluongProduct), Size);
+        db.inserdOrderDetail(orderDeltail);
+
+
+    }
+
+    public void doneBill() throws SQLException {
+        db = new DB();
+        for(int i = 0; i < arrayListDetail.size(); i++){
+            System.out.println(arrayListDetail.get(i));
+        }
+    }
+    public void getData() throws SQLException {
+        ArrayList<OrderDeltail> list = getListOrdetail();
+        tb_ordetail.getItems().addAll(list);
+
+    }
+    public ArrayList<OrderDeltail> getListOrdetail() throws SQLException {
+        ArrayList<OrderDeltail> list = new ArrayList<>();
+        ResultSet set = db.getOrderdetail();
+        while (set.next()){
+            list.add(new OrderDeltail(set.getInt(1), set.getInt(2), set.getInt(3), set.getInt(4), set.getString(5)));
+        }
+
+        return list;
+    }
+
+    public void clearTextFeild(){
+        id_SoHoaDon.clear();
+        id_tenSP.clear();
+        id_gia.clear();
+        id_Soluong.clear();
+
+    }
+
+    public void initData(){
+        tb_ordetail.getItems().clear();
+        id_colSoCT.setCellValueFactory(new PropertyValueFactory<>("SoCT"));
+        id_ColSoHD.setCellValueFactory(new PropertyValueFactory<>("IdHD"));
+        id_ColMaSp.setCellValueFactory(new PropertyValueFactory<>("idsp"));
+        id_ColSoLuong.setCellValueFactory(new PropertyValueFactory<>("Soluong"));
+        id_ColSize.setCellValueFactory(new PropertyValueFactory<>("Size"));
     }
 
 }

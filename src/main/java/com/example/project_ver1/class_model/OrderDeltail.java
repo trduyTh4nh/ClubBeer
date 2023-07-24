@@ -1,19 +1,21 @@
 package com.example.project_ver1.class_model;
 
 public class OrderDeltail {
-    public OrderDeltail(int soCT, int idHD, String tenSanPham, int soluong, String size) {
-        SoCT = soCT;
-        IdHD = idHD;
-        TenSanPham = tenSanPham;
-        Soluong = soluong;
-        Size = size;
-    }
+
 
     private int SoCT;
     private int IdHD;
-    private String TenSanPham;
+    private int idsp;
     private int Soluong;
     private String Size;
+
+    public OrderDeltail(int soCT, int idHD, int idsp, int soluong, String size) {
+        SoCT = soCT;
+        IdHD = idHD;
+        this.idsp = idsp;
+        Soluong = soluong;
+        Size = size;
+    }
 
     public int getSoCT() {
         return SoCT;
@@ -31,12 +33,12 @@ public class OrderDeltail {
         IdHD = idHD;
     }
 
-    public String getTenSanPham() {
-        return TenSanPham;
+    public int getIdsp() {
+        return idsp;
     }
 
-    public void setTenSanPham(String tenSanPham) {
-        TenSanPham = tenSanPham;
+    public void setIdsp(int idsp) {
+        this.idsp = idsp;
     }
 
     public int getSoluong() {
