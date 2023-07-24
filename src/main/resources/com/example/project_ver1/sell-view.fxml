@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -7,7 +8,7 @@
 <AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.OrderController">
     <children>
         <Pane layoutY="1.0" prefHeight="50.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" />
-        <GridPane fx:id="grid" hgap="5.0" layoutY="51.0" prefHeight="267.0" prefWidth="329.0" style="-fx-background-color: #6fbf82;" vgap="5.0">
+        <GridPane fx:id="grid" hgap="5.0" layoutY="51.0" prefHeight="664.0" prefWidth="329.0" style="-fx-background-color: #6fbf82;" vgap="5.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="130.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="136.0" />
@@ -30,46 +31,87 @@
                         <Font name="System Bold" size="35.0" />
                     </font>
                 </Label>
-
-                <TextField fx:id="id_Soluong" layoutX="23.0" layoutY="368.0" prefHeight="42.0" prefWidth="220.0" promptText="Số lượng" />
-                <TextField fx:id="id_tenSP" layoutX="23.0" layoutY="241.0" prefHeight="42.0" prefWidth="220.0" promptText="Tên sản phẩm" />
-                <Button fx:id="id_addProduct" layoutX="12.0" layoutY="578.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="72.0" prefWidth="113.0" text="Thêm sản phẩm">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Button>
-                <Button layoutX="153.0" layoutY="578.0" mnemonicParsing="false" onAction="#doneBill" prefHeight="72.0" prefWidth="96.0" text="Xuất Hóa Đơn">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                </Button>
-                <TextField fx:id="id_gia" layoutX="23.0" layoutY="306.0" prefHeight="42.0" prefWidth="220.0" promptText="Giá" />
-            <Label layoutX="23.0" layoutY="498.0" text="Tổng tiền:" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="22.0" />
-               </font>
-            </Label>
-            <TextField fx:id="id_SoHoaDon" layoutX="23.0" layoutY="184.0" prefHeight="42.0" prefWidth="220.0" promptText="Số hóa đơn" />
-            <ComboBox fx:id="id_size" layoutX="24.0" layoutY="436.0" prefHeight="34.0" prefWidth="128.0" promptText="Size" />
-            <Button fx:id="id_btnCreateProduct" layoutX="23.0" layoutY="133.0" mnemonicParsing="false" onAction="#createOrder" prefHeight="34.0" prefWidth="106.0" text="Tạo hóa đơn" />
-            <Label layoutX="279.0" layoutY="37.0" text="Hoá đơn đặt hàng" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="46.0" />
-               </font>
-            </Label>
-            <Label layoutX="144.0" layoutY="497.0" text="0" textFill="WHITE">
-               <font>
-                  <Font name="American Typewriter" size="24.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tb_ordetail" layoutX="269.0" layoutY="133.0" prefHeight="533.0" prefWidth="557.0">
-              <columns>
-                <TableColumn fx:id="id_colSoCT" prefWidth="114.0" text="Số chi  tiết" />
-                <TableColumn fx:id="id_ColSoHD" prefWidth="112.0" text="Số hoá đơn" />
-                  <TableColumn fx:id="id_ColMaSp" prefWidth="124.0" text="Mã sản phẩm" />
-                  <TableColumn fx:id="id_ColSoLuong" minWidth="0.0" prefWidth="99.0" text="Số  lượng" />
-                  <TableColumn fx:id="id_ColSize" minWidth="0.0" prefWidth="107.0" text="Size" />
-              </columns>
-            </TableView>
+            <VBox alignment="CENTER" layoutX="12.0" layoutY="37.0" maxWidth="1.7976931348623157E308" spacing="25.0">
+               <children>
+                  <Label text="Hoá đơn đặt hàng" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="46.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="533.0" prefWidth="814.0" spacing="15.0">
+                     <children>
+                        <VBox prefHeight="533.0" prefWidth="224.0">
+                           <children>
+                              <VBox spacing="25.0">
+                                 <children>
+                                    <VBox spacing="15.0">
+                                       <children>
+                                          <TextField fx:id="id_SoHoaDon" prefHeight="42.0" prefWidth="220.0" promptText="Số hóa đơn" />
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Button fx:id="id_btnCreateProduct" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createOrder" prefHeight="34.0" text="Tạo hóa đơn" HBox.hgrow="ALWAYS" />
+                                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doneBill" prefHeight="34.0" text="Xuất Hóa Đơn" HBox.hgrow="ALWAYS">
+                                                        <font>
+                                                            <Font size="13.0" />
+                                                        </font>
+                                                    </Button>
+                                             </children>
+                                          </HBox>
+                                           <Separator />
+                                              <TextField fx:id="id_tenSP" prefHeight="42.0" prefWidth="220.0" promptText="Tên sản phẩm" />
+                                              <TextField fx:id="id_gia" prefHeight="42.0" prefWidth="220.0" promptText="Giá" />
+                              
+                                              <TextField fx:id="id_Soluong" prefHeight="42.0" prefWidth="220.0" promptText="Số lượng" />
+                                          <ComboBox fx:id="id_size" prefHeight="34.0" prefWidth="128.0" promptText="Size" />
+                                       </children>
+                                    </VBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Tổng tiền:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="American Typewriter" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" prefHeight="155.0" prefWidth="224.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox maxWidth="1.7976931348623157E308" prefWidth="224.0" spacing="15.0">
+                                       <children>
+                                              <Button fx:id="id_addProduct" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addProduct" prefHeight="72.0" text="Thêm sản phẩm" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <TableView fx:id="tb_ordetail" prefHeight="533.0" prefWidth="557.0" HBox.hgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="id_colSoCT" prefWidth="114.0" text="Số chi  tiết" />
+                            <TableColumn fx:id="id_ColSoHD" prefWidth="112.0" text="Số hoá đơn" />
+                              <TableColumn fx:id="id_ColMaSp" prefWidth="124.0" text="Mã sản phẩm" />
+                              <TableColumn fx:id="id_ColSoLuong" minWidth="0.0" prefWidth="99.0" text="Số  lượng" />
+                              <TableColumn fx:id="id_ColSize" minWidth="0.0" prefWidth="107.0" text="Size" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
             </children></Pane>
     </children>
 </AnchorPane>

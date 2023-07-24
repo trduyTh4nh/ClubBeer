@@ -99,7 +99,7 @@ public class DB {
         return new User(set.getInt(1), set.getString(2), set.getInt(3), set.getString(4), set.getString(5), set.getString(6), set.getString(8));
     }
     public Role getRole(String id) throws SQLException{
-        ResultSet set = st.executeQuery("SELECT * FROM ROLE WHERE id; = '" + id + "'");
+        ResultSet set = st.executeQuery("SELECT * FROM ROLE WHERE id = '" + id + "'");
         if (set.next()){
             return new Role(set.getString(1), set.getString(2), set.getString(3));
         };
@@ -112,6 +112,9 @@ public class DB {
 
     public ResultSet getOrderdetail() throws SQLException {
         return st.executeQuery("SELECT * FROM CTHD");
+    }
+    public ResultSet getorderDetailbyIDHoaDon(int id) throws SQLException {
+        return st.executeQuery("SELECT soct, c.masp, tensp, soluong, gia * soluong, size FROM cthd c, sanpham s WHERE c.masp = s.masp AND ID = " + id);
     }
 
 //    public  getAllOrderDetail(){

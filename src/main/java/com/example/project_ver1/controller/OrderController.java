@@ -11,8 +11,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.DirectoryChooser;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -150,12 +159,42 @@ public class OrderController implements Initializable {
 
 
     }
-
-    public void doneBill() throws SQLException {
-        db = new DB();
-        for(int i = 0; i < arrayListDetail.size(); i++){
-            System.out.println(arrayListDetail.get(i));
+    @FXML
+    public void doneBill() throws SQLException, IOException {
+        String hdh = System.getProperty("os.name");
+        System.out.println(hdh);
+        char p;
+        if(hdh.contains("win")){
+            p = '\\';
+        } else {
+            p = '/';
         }
+        DirectoryChooser c = new DirectoryChooser();
+        File sel = c.showDialog(id_addProduct.getParent().getScene().getWindow());
+        System.out.println(sel.getAbsolutePath().toString());
+        File out = new File(sel.getAbsolutePath() + p + "output.txt");
+
+        String fileName = sel.getAbsolutePath() + p + "output.txt";
+        Path newFile = Paths.get(fileName);
+        Files.createFile(newFile);
+        StringBuilder s = new StringBuilder("========Hoá đơn bán hàng==========");
+        s.append(String.format("\n %10s %10s %10s %10s %10s %10s", "STT", "Mã SP", "Tên SP", "Số lượng", "Đơn giá", "Size"));
+        ArrayList<OrderDeltail> l = iNeedMoreDETAILS(Integer.parseInt(id_SoHoaDon.getText()));
+        for (OrderDeltail d : l) {
+            s.append(String.format("\n %10d %10d %10s %10d %10s", d.getSoCT(), d.getIdsp(), d.getTenSP(), d.getSoluong(), d.getDongia(), d.getSize()));
+        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter(out));
+        writer.write(s.toString());
+        writer.close();
+    }
+    public ArrayList<OrderDeltail> iNeedMoreDETAILS(int id) throws SQLException {
+        ArrayList<OrderDeltail> d = new ArrayList<>();
+        db = new DB();
+        ResultSet set = db.getorderDetailbyIDHoaDon(id);
+        while(set.next()){
+            d.add(new OrderDeltail(set.getInt(1), set.getInt(2), set.getInt(4), set.getString(3), set.getInt(5), set.getString(6)));
+        }
+        return d;
     }
     public void getData() throws SQLException {
         ArrayList<OrderDeltail> list = getListOrdetail();
@@ -187,6 +226,10 @@ public class OrderController implements Initializable {
         id_ColMaSp.setCellValueFactory(new PropertyValueFactory<>("idsp"));
         id_ColSoLuong.setCellValueFactory(new PropertyValueFactory<>("Soluong"));
         id_ColSize.setCellValueFactory(new PropertyValueFactory<>("Size"));
+    }
+    @FXML
+    public void saveFile(){
+
     }
 
 }

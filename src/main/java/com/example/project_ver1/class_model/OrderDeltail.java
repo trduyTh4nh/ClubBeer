@@ -7,6 +7,19 @@ public class OrderDeltail {
     private int IdHD;
     private int idsp;
     private int Soluong;
+    private String TenSP;
+    private int dongia;
+
+
+    public OrderDeltail(int soCT, int idsp, int soluong, String tenSP, int dongia, String size) {
+        SoCT = soCT;
+        this.idsp = idsp;
+        Soluong = soluong;
+        TenSP = tenSP;
+        this.dongia = dongia;
+        Size = size;
+    }
+
     private String Size;
 
     public OrderDeltail(int soCT, int idHD, int idsp, int soluong, String size) {
@@ -55,5 +68,21 @@ public class OrderDeltail {
 
     public void setSize(String size) {
         Size = size;
+    }
+
+    public String getTenSP() {
+        return TenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        TenSP = tenSP;
+    }
+
+    public int getDongia() {
+        return dongia;
+    }
+
+    public void setDongia(int dongia) {
+        this.dongia = dongia;
     }
 }
