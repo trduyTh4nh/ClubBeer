@@ -31,7 +31,6 @@ public class HomeApplication extends Application {
         FXMLLoader orderView = new FXMLLoader(HomeApplication.class.getResource("order-view.fxml"));
         FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
         FXMLLoader sell = new FXMLLoader(HomeApplication.class.getResource("sell-view.fxml"));
-
         Scene sceneLogin = new Scene(login.load());
         Scene sceneMain = new Scene(fxmlLoader.load());
         Scene sceneProduct = new Scene(productView.load());

@@ -1,7 +1,9 @@
 package com.example.project_ver1.controller;
 
 import com.example.project_ver1.HomeApplication;
+import com.example.project_ver1.class_model.Role;
 import com.example.project_ver1.model.DB;
+import com.example.project_ver1.model.LoginDetails;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -45,8 +47,13 @@ public class LoginController {
             alert.setContentText("Đăng nhập thành công");
             alert.show();
             //Parent p = (Parent) root.load();
-
-            HomeApplication.changeStage("home-view.fxml");
+            instance.setEmail(email);
+            instance.setPassword(password);
+            Role r = db.getRoleByEmail(email);
+            if(r.getId().equals("nhanv")){
+                HomeApplication.changeStage("sell-view.fxml");
+            } else
+                HomeApplication.changeStage("home-view.fxml");
         }
         else {
             alert.setContentText("Đăng nhập thất bại");
