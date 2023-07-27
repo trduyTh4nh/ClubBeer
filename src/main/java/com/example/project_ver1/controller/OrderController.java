@@ -1,5 +1,6 @@
 package com.example.project_ver1.controller;
 
+import com.example.project_ver1.HomeApplication;
 import com.example.project_ver1.class_model.Order;
 import com.example.project_ver1.class_model.OrderDeltail;
 import com.example.project_ver1.class_model.Product;
@@ -36,6 +37,9 @@ public class OrderController implements Initializable {
     DB db;
     ArrayList<Product> prods;
     private int ID;
+    private int IdHD;
+    @FXML
+    Label total;
     @FXML
     TextField id_SoHoaDon;
     @FXML
@@ -61,7 +65,8 @@ public class OrderController implements Initializable {
     TableColumn<OrderDeltail, Integer> id_ColSoLuong;
     @FXML
     TableColumn<OrderDeltail, String> id_ColSize;
-
+    @FXML
+    TableColumn<OrderDeltail, Integer> id_col_gia;
     private LoginDetails loginDetails = LoginDetails.INSTANCE;
 
     @Override
@@ -139,9 +144,10 @@ public class OrderController implements Initializable {
         System.out.println(Size);
         String dt = format.format(date);
 
-        Order order = new Order(Integer.parseInt(idHD), dt);
-        db.insertOrder(order);
-
+        Order order = new Order(-1, dt);
+        IdHD = db.insertOrder(order).getMaHD();
+        id_SoHoaDon.setText(String.valueOf(IdHD));
+        tb_ordetail.getItems().clear();
 
     }
     private ArrayList<OrderDeltail> arrayListDetail;
@@ -151,12 +157,14 @@ public class OrderController implements Initializable {
         String idHD = id_SoHoaDon.getText().toString();
         String nameProduct = id_tenSP.getText().toString();
         String giaProduct = id_gia.getText().toString();
+
         String soluongProduct = id_Soluong.getText().toString();
         String Size = id_size.getValue();
         System.out.println(Size);
         OrderDeltail orderDeltail = new OrderDeltail(0, Integer.parseInt(idHD), ID, Integer.parseInt(soluongProduct), Size);
         db.inserdOrderDetail(orderDeltail);
-
+        tb_ordetail.getItems().clear();
+        getData();
 
     }
     @FXML
@@ -178,14 +186,17 @@ public class OrderController implements Initializable {
         Path newFile = Paths.get(fileName);
         Files.createFile(newFile);
         StringBuilder s = new StringBuilder("========Hoá đơn bán hàng==========");
-        s.append(String.format("\n %10s %10s %10s %10s %10s %10s", "STT", "Mã SP", "Tên SP", "Số lượng", "Đơn giá", "Size"));
+        s.append(String.format("\n %10s %10s %50s %10s %10s %10s", "STT", "Mã SP", "Tên SP", "Số lượng", "Đơn giá", "Size"));
         ArrayList<OrderDeltail> l = iNeedMoreDETAILS(Integer.parseInt(id_SoHoaDon.getText()));
         for (OrderDeltail d : l) {
-            s.append(String.format("\n %10d %10d %10s %10d %10s", d.getSoCT(), d.getIdsp(), d.getTenSP(), d.getSoluong(), d.getDongia(), d.getSize()));
+            s.append(String.format("\n %10d %10d %50s %10d %10s %10s", d.getSoCT(), d.getIdsp(), d.getTenSP(), d.getSoluong(), d.getDongia(), d.getSize()));
         }
         BufferedWriter writer = new BufferedWriter(new FileWriter(out));
         writer.write(s.toString());
         writer.close();
+        db.deleteOrderDetail(Integer.parseInt(id_SoHoaDon.getText()));
+        tb_ordetail.getItems().clear();
+        getData();
     }
     public ArrayList<OrderDeltail> iNeedMoreDETAILS(int id) throws SQLException {
         ArrayList<OrderDeltail> d = new ArrayList<>();
@@ -197,11 +208,13 @@ public class OrderController implements Initializable {
         return d;
     }
     public void getData() throws SQLException {
-        ArrayList<OrderDeltail> list = getListOrdetail();
+        tb_ordetail.getItems().clear();
+        ArrayList<OrderDeltail> list = getAllOrderDetail();
         tb_ordetail.getItems().addAll(list);
 
     }
     public ArrayList<OrderDeltail> getListOrdetail() throws SQLException {
+
         ArrayList<OrderDeltail> list = new ArrayList<>();
         ResultSet set = db.getOrderdetail();
         while (set.next()){
@@ -210,7 +223,28 @@ public class OrderController implements Initializable {
 
         return list;
     }
-
+    public ArrayList<OrderDeltail> getAllOrderDetail() throws SQLException{
+        double pricetotal = 0;
+        ArrayList<OrderDeltail> arr = new ArrayList<>();
+        ResultSet set = db.getAllOrderDetail();
+        while(set.next()){
+            double price = set.getInt(6);
+            switch (set.getString(5)){
+                case "M":
+                    price = price + price * 0.1;
+                    break;
+                case "L":
+                    price = price + price * 0.25;
+                    break;
+                default:
+                    break;
+            }
+            arr.add(new OrderDeltail(set.getInt(1), set.getInt(2), set.getInt(4), set.getString(3), (int) (price * set.getInt(4)), set.getString(5)));
+            pricetotal += (price * set.getInt(4));
+        }
+        total.setText(String.valueOf(pricetotal));
+        return arr;
+    }
     public void clearTextFeild(){
         id_SoHoaDon.clear();
         id_tenSP.clear();
@@ -218,18 +252,53 @@ public class OrderController implements Initializable {
         id_Soluong.clear();
 
     }
-
+    @FXML
+    public void dangXuat() throws IOException {
+        HomeApplication.changeStage("login-view.fxml");
+    }
     public void initData(){
         tb_ordetail.getItems().clear();
         id_colSoCT.setCellValueFactory(new PropertyValueFactory<>("SoCT"));
-        id_ColSoHD.setCellValueFactory(new PropertyValueFactory<>("IdHD"));
-        id_ColMaSp.setCellValueFactory(new PropertyValueFactory<>("idsp"));
+        id_ColSoHD.setCellValueFactory(new PropertyValueFactory<>("idsp"));
+        id_ColMaSp.setCellValueFactory(new PropertyValueFactory<>("TenSP"));
         id_ColSoLuong.setCellValueFactory(new PropertyValueFactory<>("Soluong"));
         id_ColSize.setCellValueFactory(new PropertyValueFactory<>("Size"));
+        id_col_gia.setCellValueFactory(new PropertyValueFactory<>("dongia"));
     }
     @FXML
-    public void saveFile(){
+    public void deleteOrder() throws SQLException {
+        if (tb_ordetail.getSelectionModel().getSelectedItem() != null) {
+            Product product = db.getProductById(tb_ordetail.getSelectionModel().getSelectedItem().getIdsp());
+            String TenSP = product.getTenSP();
+            int soCt = tb_ordetail.getSelectionModel().getSelectedItem().getSoCT();
+            try {
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                a.setTitle("Xác nhận xoá");
+                a.setContentText("Bạm có muốn xóa sản phẩm \"" + TenSP + "\"?");
+                a.setHeaderText("Xoá sản phẩm?");
+                a.showAndWait();
+                if (a.getResult() == ButtonType.OK) {
+                    db.deleteDetailOrder(soCt);
+
+                    getData();
+                }
+            } catch (SQLException e) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Lỗi CSDL");
+                a.setContentText("Lỗi khi truy xuất CSDL: \n" + e.getMessage());
+                a.setHeaderText("Lỗi SQL");
+                a.show();
+            } catch (Exception e) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Lỗi");
+                a.setContentText("Lỗi về phần mềm, có thể các ô có thể rỗng hoặc sai kiểu dữ liệu: \n" + e.getMessage());
+                a.setHeaderText("Lỗi client");
+                a.show();
+            }
+
+            clearTextFeild();
+        }
+
 
     }
-
 }

@@ -1,10 +1,14 @@
 package com.example.project_ver1.class_model;
 
+import java.sql.Date;
+
 public class Order {
     private int MaHD;
     private String NgayLap;
 
-
+    public Order(int maHD) {
+        MaHD = maHD;
+    }
 
     public Order(int maHD, String ngayLap) {
         MaHD = maHD;

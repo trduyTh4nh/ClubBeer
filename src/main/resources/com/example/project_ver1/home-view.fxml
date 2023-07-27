@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="734.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Order">
+            <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" disable="true" layoutX="734.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Order">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

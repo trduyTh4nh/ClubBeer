@@ -20,7 +20,7 @@ public class DB {
         props.setProperty("password", PASSWORD);
         conn = DriverManager.getConnection(URL,props);
 
-        st = conn.createStatement();
+        st = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
     }
     public void insertUser(User user) throws SQLException{
         PreparedStatement test =  conn.prepareStatement(String.format("INSERT INTO USERS (id, name, age, email, password, phone, role) VALUES " +
@@ -54,10 +54,14 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement(String.format("INSERT INTO SanPham  VALUES (%d, '%s', '%s', %d, %d)", product.getMaSP(), product.getTenSP(), product.getMoTa(), product.getMaLoaiSp(), product.getGia()));
         statement.execute();
     }
-    public void insertOrder(Order order) throws SQLException {
-
-        PreparedStatement statement = conn.prepareStatement(String.format("INSERT INTO HoaDon VALUES (%d, '%s', %d, %d)", order.getMaHD(), order.getNgayLap(), 0, loginDetails.getID()));
+    public Order insertOrder(Order order) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("INSERT INTO HoaDon (NgayLap, TongTien, UserID) VALUES ('%s', %d, %d)", order.getNgayLap(), 0, loginDetails.getID()));
         statement.execute();
+        ResultSet s = st.executeQuery("SELECT ID FROM HOADON");
+
+        s.last();
+        System.out.println(String.valueOf(s.getInt(1)));
+        return new Order(s.getInt(1));
     }
     public void updateProduct(Product product) throws SQLException {
         PreparedStatement statement = conn.prepareStatement(String.format("UPDATE SanPham  SET tensp  = '%s'" +
@@ -115,6 +119,29 @@ public class DB {
     }
     public ResultSet getorderDetailbyIDHoaDon(int id) throws SQLException {
         return st.executeQuery("SELECT soct, c.masp, tensp, soluong, gia * soluong, size FROM cthd c, sanpham s WHERE c.masp = s.masp AND ID = " + id);
+    }
+    public ResultSet getAllOrderDetail() throws SQLException {
+        return st.executeQuery("SELECT SoCT, c.ID, TenSP, soluong, size, Gia\n" +
+                "FROM CTHD c, SanPham s\n" +
+                "WHERE c.masp = s.masp");
+    }
+    public void deleteOrderDetail(int id) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM CTHD WHERE ID = " + id);
+        ps.execute();
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM HOADON WHERE id = " + id);
+        statement.execute();
+    }
+    public void deleteDetailOrder(int soct) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM CTHD WHERE soct = %d", soct));
+        statement.execute();
+    }
+    public Product getProductById(int id) throws SQLException {
+        ResultSet set = st.executeQuery("SELECT * FROM SanPham WHERE MaSP = '"+ id + "'" );
+
+        if(set.next()){{
+            return new Product(set.getInt(1), set.getString(2), set.getString(3), set.getInt(4), set.getInt(5));
+        }}
+        return new Product(0, "null", "null", 0, 0);
     }
 
 //    public  getAllOrderDetail(){
