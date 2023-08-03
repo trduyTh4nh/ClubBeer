@@ -37,10 +37,8 @@ public class HomeApplication extends Application {
         Scene sceneOrder = new Scene(orderView.load());
         Scene sceneEmploy = new Scene(employView.load());
         Scene sceneSell = new Scene(sell.load());
-
         String  style= getClass().getResource("button.css").toExternalForm();
         sceneMain.getStylesheets().add(style);
-
         stage.setResizable(false);
         stage.setTitle("Club beer!");
         stage.setScene(sceneLogin);
