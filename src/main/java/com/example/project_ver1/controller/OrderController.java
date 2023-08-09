@@ -205,17 +205,26 @@ public class OrderController implements Initializable {
         DirectoryChooser c = new DirectoryChooser();
         File sel = c.showDialog(id_addProduct.getParent().getScene().getWindow());
         System.out.println(sel.getAbsolutePath().toString());
-        File out = new File(sel.getAbsolutePath() + p + "output.txt");
+        File out = new File(sel.getAbsolutePath() + p + "hoadon"+IdHD+".txt");
 
-        String fileName = sel.getAbsolutePath() + p + "output.txt";
+        String fileName = sel.getAbsolutePath() + p + "hoadon"+IdHD+".txt";
         Path newFile = Paths.get(fileName);
         Files.createFile(newFile);
-        StringBuilder s = new StringBuilder("========Hoá đơn bán hàng==========");
-        s.append(String.format("\n %10s %10s %50s %10s %10s %10s", "STT", "Mã SP", "Tên SP", "Số lượng", "Đơn giá", "Size"));
+        StringBuilder s = new StringBuilder("Hoá đơn bán hàng");
+        s.append(String.format("\n %10s %10s %15s %10s %10s %10s", "STT", "Mã SP", "Tên SP", "Số lượng", "Đơn giá", "Size"));
         ArrayList<OrderDeltail> l = iNeedMoreDETAILS(Integer.parseInt(id_SoHoaDon.getText()));
+        int tongtien = 0;
         for (OrderDeltail d : l) {
-            s.append(String.format("\n %10d %10d %50s %10d %10s %10s", d.getSoCT(), d.getIdsp(), d.getTenSP(), d.getSoluong(), d.getDongia(), d.getSize()));
+            s.append(String.format("\n %10d %10d %15s %10d %10s %10s", d.getSoCT(), d.getIdsp(), d.getTenSP(), d.getSoluong(), d.getDongia(), d.getSize()));
+            tongtien += d.getDongia();
         }
+        s.append("\n===================================================================");
+        s.append(String.format("\n Tổng tiền: %d", tongtien));
+        s.append("\n===================================================================");
+        LocalDateTime date = LocalDateTime.now().plusDays(1);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+        String dt = format.format(date);
+        s.append("\nCông ty TNHH ClubBeer, Hoá đơn xuất ngày " + dt);
         BufferedWriter writer = new BufferedWriter(new FileWriter(out));
         writer.write(s.toString());
         writer.close();

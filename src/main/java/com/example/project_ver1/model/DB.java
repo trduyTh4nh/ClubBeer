@@ -76,7 +76,7 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement(
                 String.format(
                         "UPDATE users " +
-                                "SET name = '%s', age = %d, email = '%s', password = '%s', phone = '%s', role = %d " +
+                                "SET name = '%s', age = %d, email = '%s', password = '%s', phone = '%s', role = '%s' " +
                                 "WHERE id = " + user.getId(), user.getName(), user.getAge(), user.getEmail(), user.getPassword(), user.getPhone(), user.getRole()
                 )
         );
@@ -188,7 +188,26 @@ public class DB {
         statement.setInt(1, idhd);
         return statement.executeQuery();
     }
-
+    public ResultSet getLoaiSp() throws SQLException{
+        return st.executeQuery("SELECT * FROM LoaiSP");
+    }
+    public ResultSet getSingularLoaiSP(int loaisp) throws SQLException{
+        return st.executeQuery("SELECT * FROM LOAISP WHERE maloai = " + loaisp);
+    }
+    public void addLoaiSP(CateProduct cate) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO loaisp VALUES (?,?,?)");
+        ps.setInt(1, cate.getMaloai());
+        ps.setString(2, cate.getTenSp());
+        ps.setString(3, cate.getMoTa());
+        ps.execute();
+    }
+    public void updateLoaiSP(CateProduct cate) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE loaisp SET tenloai = ?, mota = ? WHERE maloai = ?");
+        ps.setString(1, cate.getTenSp());
+        ps.setString(2, cate.getMoTa());
+        ps.setInt(3, cate.getMaloai());
+        ps.execute();
+    }
 
 //    public  getAllOrderDetail(){
 //
