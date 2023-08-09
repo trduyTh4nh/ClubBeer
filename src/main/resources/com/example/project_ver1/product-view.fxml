@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
    <children>
       <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="374.0" layoutY="142.0" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
       <TableView fx:id="tableProduct" layoutX="524.0" layoutY="54.0" onMouseClicked="#ClickItems" prefHeight="657.0" prefWidth="948.0" AnchorPane.topAnchor="54.0">
          <columns>
-            <TableColumn id="idProduct" fx:id="masp" prefWidth="51.0" style="-fx-background-color: #C5DFF8;" text="#" />
+            <TableColumn id="idProduct" fx:id="masp" prefWidth="51.0" text="#" />
             <TableColumn id="nameProduct" fx:id="tensp" prefWidth="265.0" text="Tên sản phẩm" />
-            <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="116.0" style="-fx-background-color: #C5DFF8;" text="Loại sản phẩm" />
+            <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="116.0" text="Loại sản phẩm" />
             <TableColumn id="priceProduct" fx:id="giasp" prefWidth="158.0" text="Giá" />
-            <TableColumn id="desProduct" fx:id="motasp" prefWidth="357.0" style="-fx-background-color: C5DFF8;" text="Mô tả" />
+            <TableColumn id="desProduct" fx:id="motasp" prefWidth="357.0" text="Mô tả" />
          </columns>
       </TableView>
       <Pane layoutY="54.0" prefHeight="657.0" prefWidth="526.0" style="-fx-background-color: #7895CB;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
@@ -59,12 +52,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="213.0" layoutY="144.0" prefWidth="20.0" rotate="44.3" text="🍺" textFill="#ffea00">
+            <Label layoutX="203.0" layoutY="144.0" prefWidth="20.0" rotate="44.3" text="🍺" textFill="#ffea00">
                <font>
                   <Font name="Apple Color Emoji" size="19.0" />
                </font>
             </Label>
-            <VBox layoutX="284.0" layoutY="20.0" prefHeight="618.0" prefWidth="216.0" spacing="25.0">
+            <VBox layoutX="284.0" layoutY="20.0" prefHeight="356.0" prefWidth="216.0" spacing="25.0">
                <children>
                   <TextField fx:id="id_idcate" prefHeight="40.0" prefWidth="216.0" promptText="Mã loại" />
                   <TextField fx:id="id_namecate" prefHeight="43.0" prefWidth="216.0" promptText="Tên loại" />
@@ -74,6 +67,179 @@
                   <Button fx:id="btn_addCate1" layoutX="10.0" layoutY="211.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="35.0" prefWidth="216.0" text="Clear giá trị" />
                </children>
             </VBox>
+            <Label layoutX="352.0" layoutY="391.0" text="🍌">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.949999988079071" green="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6184210777282715" green="0.5907925367355347" blue="0.0658503919839859" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="284.0" layoutY="438.0" text="🍉">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.4613259668508287" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6100000143051147" green="0.06710000336170197" blue="0.06710000336170197" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="343.0" layoutY="498.0" text="🍊">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7237654328346252" blue="0.17129629850387573" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="0.9752517938613892" blue="0.14000000059604645" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="392.0" layoutY="444.0" text="🍋">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.4613259668508287" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7237654328346252" blue="0.17129629850387573" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="0.9752517938613892" blue="0.14000000059604645" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="284.0" layoutY="543.0" text="🍈">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.43906474113464355" green="1.0" blue="0.3100000023841858" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3795524835586548" green="1.0" blue="0.13425925374031067" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="363.0" layoutY="580.0" text="🍇">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8032407164573669" green="0.3055555522441864" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="446.0" layoutY="572.0" text="🍐">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.375" green="0.9270833134651184" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.24074074625968933" green="1.0" blue="0.9746913313865662" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="456.0" layoutY="498.0" text="🍍" textFill="#edff47">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="456.0" layoutY="415.0" text="🍎">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.18000000715255737" blue="0.18000000715255737" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="0.9752517938613892" blue="0.14000000059604645" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
          </children>
       </Pane>
    </children>
