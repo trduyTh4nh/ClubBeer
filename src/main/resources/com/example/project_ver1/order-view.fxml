@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="id_btOrderDeTail" prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.SellController">
@@ -23,6 +24,153 @@
                   <Font size="29.0" />
                </font>
             </Label>
+            <Label layoutX="58.0" layoutY="469.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="161.0" layoutY="211.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="273.0" layoutY="263.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="152.0" layoutY="371.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="259.0" layoutY="446.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="161.0" layoutY="544.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="38.0" layoutY="289.0" text="💸">
+               <font>
+                  <Font size="52.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.8896604776382446" blue="0.33796295523643494" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3684210479259491" green="0.4736842215061188" blue="0.05263157933950424" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
          </children></Pane>
       <Pane prefHeight="58.0" prefWidth="1155.0" style="-fx-background-color: #002d40;">
          <children>
@@ -30,10 +178,10 @@
          </children></Pane>
       <TableView fx:id="tbHoadon" layoutX="373.0" layoutY="58.0" onMouseClicked="#ClickItemHoaDon" prefHeight="653.0" prefWidth="782.0">
          <columns>
-            <TableColumn fx:id="IDHoaDon" prefWidth="75.0" text="ID Hóa Đơn " />
-            <TableColumn fx:id="NgayLap" prefWidth="113.20001220703125" text="Ngày Lập" />
-            <TableColumn fx:id="TongTien" prefWidth="126.0" text="Tổng Tiền" />
-            <TableColumn fx:id="TenNguoiLap" prefWidth="126.0" text="Tên Người Lập" />
+            <TableColumn fx:id="IDHoaDon" prefWidth="210.0" text="ID Hóa Đơn " />
+            <TableColumn fx:id="NgayLap" prefWidth="157.0" text="Ngày Lập" />
+            <TableColumn fx:id="TongTien" prefWidth="147.0" text="Tổng Tiền" />
+            <TableColumn fx:id="TenNguoiLap" prefWidth="267.0" text="Tên Người Lập" />
          </columns>
       </TableView>
    </children>

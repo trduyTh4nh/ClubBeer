@@ -1,92 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.EmployController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: #102C57;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.EmployController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutY="54.0" prefHeight="657.0" prefWidth="898.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: #8F90DE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: #9ED2BE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox prefWidth="311.0" spacing="10.0">
                            <children>
                               <TextField fx:id="search_employ" prefHeight="37.0" prefWidth="231.0" promptText="Tìm kiếm nhân viên" />
-                              <Button defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchUser" text="Tìm kiếm" HBox.hgrow="ALWAYS" />
+                              <Button defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchUser" text="Tìm kiếm" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getData" text="Hiển thị data" VBox.vgrow="ALWAYS" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getData" prefHeight="44.0" prefWidth="311.0" text="Hiển thị data" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
                         <Separator prefWidth="200.0" />
-                        <Label text="Chỉnh sửa nhân viên" textFill="WHITE">
+                        <Label contentDisplay="CENTER" text="👦  👧" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label text="Chỉnh sửa nhân viên">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
                         <HBox prefWidth="200.0" spacing="5.0">
                            <children>
-                               <TextField fx:id="field_id" prefWidth="311.0" promptText="ID">
+                               <TextField fx:id="field_id" prefHeight="38.0" prefWidth="153.0" promptText="ID">
                                    <padding>
                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                    </padding>
                               </TextField>
-                              <TextField fx:id="field_name" prefWidth="311.0" promptText="Họ tên">
+                              <TextField fx:id="field_name" prefHeight="36.0" prefWidth="153.0" promptText="Họ tên">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox layoutX="25.0" layoutY="140.0" prefWidth="200.0" spacing="5.0">
+                        <HBox layoutX="25.0" layoutY="140.0" prefHeight="38.0" prefWidth="311.0" spacing="5.0">
                            <children>
-                              <TextField fx:id="field_age" prefWidth="311.0" promptText="Tuổi">
+                              <TextField fx:id="field_age" prefHeight="38.0" prefWidth="153.0" promptText="Tuổi">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
-                              <TextField fx:id="field_email" prefWidth="311.0" promptText="Email">
+                              <TextField fx:id="field_email" prefHeight="37.0" prefWidth="153.0" promptText="Email">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox layoutX="25.0" layoutY="182.0" prefWidth="200.0" spacing="5.0">
+                        <HBox layoutX="25.0" layoutY="182.0" prefHeight="43.0" prefWidth="311.0" spacing="5.0">
                            <children>
-                              <PasswordField fx:id="field_password" prefWidth="311.0" promptText="Mật khẩu">
+                              <PasswordField fx:id="field_password" prefHeight="45.0" prefWidth="153.0" promptText="Mật khẩu">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </PasswordField>
-                              <TextField fx:id="field_phone" prefWidth="311.0" promptText="SĐT">
+                              <TextField fx:id="field_phone" prefHeight="43.0" prefWidth="154.0" promptText="SĐT">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
                            </children>
                         </HBox>
-                         <ComboBox fx:id="cbRole" maxWidth="1.7976931348623157E308" />
-                        <HBox prefWidth="200.0" spacing="10.0">
+                         <ComboBox fx:id="cbRole" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="311.0" />
+                        <HBox prefHeight="44.0" prefWidth="311.0" spacing="10.0">
                            <children>
-                              <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addUser" text="Thêm" HBox.hgrow="ALWAYS" />
-                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteUser" text="Xóa" HBox.hgrow="ALWAYS" />
-                              <Button layoutX="62.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editUser" text="Sửa" HBox.hgrow="ALWAYS" />
+                              <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addUser" prefHeight="49.0" prefWidth="83.0" text="Thêm" HBox.hgrow="ALWAYS" />
+                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteUser" prefHeight="44.0" prefWidth="97.0" text="Xóa" HBox.hgrow="ALWAYS" />
+                              <Button layoutX="62.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="81.0" text="Sửa" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
-                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearBoxes" text="Clear ô text" HBox.hgrow="ALWAYS" />
+                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearBoxes" prefHeight="34.0" prefWidth="311.0" text="Clear ô text" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
                      </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
