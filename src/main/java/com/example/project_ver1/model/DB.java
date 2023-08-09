@@ -128,8 +128,9 @@ public class DB {
 //    }
 
     public ResultSet getorderDetailbyIDHoaDon(int id) throws SQLException {
-        return st.executeQuery("SELECT soct, c.masp, tensp, soluong, gia * soluong, size FROM cthd c, sanpham s WHERE c.masp = s.masp AND ID = " + id);
+        return st.executeQuery("SELECT soct, c.masp, tensp, soluong, gia * soluong as dongia, size FROM cthd c, sanpham s WHERE c.masp = s.masp AND ID = " + id);
     }
+
     public ResultSet getAllOrderDetail() throws SQLException {
         return st.executeQuery("SELECT SoCT, c.ID, TenSP, soluong, size, Gia\n" +
                 "FROM CTHD c, SanPham s\n" +
@@ -174,8 +175,19 @@ public class DB {
         return total;
     }
 
-
-
+    public void updateHoaDon(int idHd, int tongGia) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement("UPDATE HoaDon SET TongTien = ? WHERE id = ?");
+        statement.setInt(1,tongGia);
+        statement.setInt(2, idHd);
+        statement.execute();
+    }
+    public ResultSet getGiaFromHoaDon(int idhd) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement("SELECT gia, soluong, size\n" +
+                "FROM cthd c, sanpham s\n" +
+                "WHERE c.masp = s.masp AND c.id = ?");
+        statement.setInt(1, idhd);
+        return statement.executeQuery();
+    }
 
 
 //    public  getAllOrderDetail(){

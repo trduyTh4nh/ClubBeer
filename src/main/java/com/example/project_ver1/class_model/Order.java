@@ -14,6 +14,13 @@ public class Order {
         MaHD = maHD;
     }
 
+    public Order(int maHD, String ngayLap, String tongTien, String idUser) {
+        MaHD = maHD;
+        NgayLap = ngayLap;
+        TongTien = tongTien;
+        this.idUser = idUser;
+    }
+
     public Order(int maHD, String ngayLap) {
         MaHD = maHD;
         NgayLap = ngayLap;

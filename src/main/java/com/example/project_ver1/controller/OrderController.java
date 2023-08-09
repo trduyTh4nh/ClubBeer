@@ -150,6 +150,30 @@ public class OrderController implements Initializable {
         tb_ordetail.getItems().clear();
 
     }
+    private void updateTotalPrice() throws SQLException {
+        int tongTien = 0;
+        ResultSet set = db.getGiaFromHoaDon(IdHD);
+        double price = 0;
+        while (set.next()){
+            int sl = set.getInt("soluong");
+            price = set.getInt("gia") * sl;
+            System.out.println(" " + sl + " " + price);
+            switch (set.getString("size")){
+                case "M":
+                    price = price + price * 0.1;
+                    break;
+                case "L":
+                    price = price + price * 0.25;
+                    break;
+                default:
+                    break;
+            }
+            tongTien += price;
+        }
+        if(IdHD > 0){
+            db.updateHoaDon(IdHD, tongTien);
+        }
+    }
     private ArrayList<OrderDeltail> arrayListDetail;
     public void addProduct() throws SQLException {
         arrayListDetail = new ArrayList<>();
@@ -164,6 +188,7 @@ public class OrderController implements Initializable {
         OrderDeltail orderDeltail = new OrderDeltail(0, Integer.parseInt(idHD), ID, Integer.parseInt(soluongProduct), Size);
         db.inserdOrderDetail(orderDeltail);
         tb_ordetail.getItems().clear();
+        updateTotalPrice();
         getData();
 
     }
@@ -202,7 +227,18 @@ public class OrderController implements Initializable {
         db = new DB();
         ResultSet set = db.getorderDetailbyIDHoaDon(id);
         while(set.next()){
-            d.add(new OrderDeltail(set.getInt(1), set.getInt(2), set.getInt(4), set.getString(3), set.getInt(5), set.getString(6)));
+            double price = set.getInt("dongia");
+            switch (set.getString("size")){
+                case "M":
+                    price = price + price * 0.1;
+                    break;
+                case "L":
+                    price = price + price * 0.25;
+                    break;
+                default:
+                    break;
+            }
+            d.add(new OrderDeltail(set.getInt(1), set.getInt("masp"), set.getInt("soluong"), set.getString("tensp"), (int) price, set.getString("size")));
         }
         return d;
     }
@@ -222,12 +258,17 @@ public class OrderController implements Initializable {
 
         return list;
     }
+
     public ArrayList<OrderDeltail> getAllOrderDetail() throws SQLException{
+        int totalPrice = 0;
         double pricetotal = 0;
+        int hoadon = -1;
         ArrayList<OrderDeltail> arr = new ArrayList<>();
         ResultSet set = db.getAllOrderDetail();
         while(set.next()){
             double price = set.getInt(6);
+            hoadon = set.getInt("id");
+            totalPrice += price;
             switch (set.getString(5)){
                 case "M":
                     price = price + price * 0.1;
@@ -241,6 +282,7 @@ public class OrderController implements Initializable {
             arr.add(new OrderDeltail(set.getInt(1), set.getInt(2), set.getInt(4), set.getString(3), (int) (price * set.getInt(4)), set.getString(5)));
             pricetotal += (price * set.getInt(4));
         }
+
         total.setText(String.valueOf(pricetotal));
         return arr;
     }
