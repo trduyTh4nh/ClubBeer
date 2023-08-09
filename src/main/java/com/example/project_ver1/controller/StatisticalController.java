@@ -40,8 +40,8 @@ public class StatisticalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        id_year_first.setItems(FXCollections.observableArrayList("2020", "2021", "2022", "2023"));
-        id_year_second.setItems(FXCollections.observableArrayList("2020", "2021", "2022", "2023"));
+        id_year_first.setItems(FXCollections.observableArrayList("2016", "2018", "2020", "2022"));
+        id_year_second.setItems(FXCollections.observableArrayList("2017", "2019", "2021", "2023"));
 
         String FirstY = id_year_first.getValue();
         String SecondY = id_year_second.getValue();
@@ -87,13 +87,16 @@ public class StatisticalController implements Initializable {
         // biểu đồ này sẽ so sánh tiền bán qua cách tháng của năm 2003 với 2004 xem sự thay đổi như thế nào từ đó đưa ra chiến lược marketing phù hợp
 
 
+
         series1 = new XYChart.Series();
         series2 = new XYChart.Series();
 
         series1.getData().clear();
         series2.getData().clear();
 
+
         if (idFirstYear == null) {
+
             id_year_first.setValue("2022");
             idFirstYear = "2022";
 
@@ -105,8 +108,13 @@ public class StatisticalController implements Initializable {
         }
 
         for (int i = 0; i < 12; i++) {
-            System.out.println(idFirstYear + " " + String.valueOf(db.monthlyIncome(i + 1, Integer.parseInt(idFirstYear))));
-            series1.getData().add(new XYChart.Data<>("Tháng" + String.valueOf(i + 1), db.monthlyIncome(i + 1, Integer.parseInt(idFirstYear))));
+            if(idFirstYear == null){
+                continue;
+            }
+            else {
+                System.out.println(idFirstYear + " " + String.valueOf(db.monthlyIncome(i + 1, Integer.parseInt(idFirstYear))));
+                series1.getData().add(new XYChart.Data<>("Tháng" + String.valueOf(i + 1), db.monthlyIncome(i + 1, Integer.parseInt(idFirstYear))));
+            }
         }
 
         series2.setName(idSecondYear);
@@ -118,6 +126,9 @@ public class StatisticalController implements Initializable {
 
         barchart.getData().addAll(series1, series2);
 
+
+
+
         int tongtien = 0;
 
         try {
@@ -125,8 +136,6 @@ public class StatisticalController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        id_year_first.setVisible(false);
 
 
         System.out.println(String.valueOf(tongtien));

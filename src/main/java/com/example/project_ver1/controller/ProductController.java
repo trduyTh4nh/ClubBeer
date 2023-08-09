@@ -66,7 +66,6 @@ public class ProductController implements Initializable {
     }
     @FXML
     public void addProduct() throws SQLException {
-
         Product product = new Product(Integer.parseInt(id_id.getText().toString()), id_name.getText().toString(), id_desc.getText().toString(), Integer.parseInt(id_cate.getText().toString()), Integer.parseInt(id_price.getText().toString()));
         db.insertProduct(product);
         getData();
@@ -90,6 +89,7 @@ public class ProductController implements Initializable {
         }
         return arrProduct;
     }
+
     @FXML
     public ArrayList<Product> listDataToSearch() throws SQLException {
         String key = id_search.getText().toString();

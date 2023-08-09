@@ -44,7 +44,7 @@ public class HomeApplication extends Application {
         String style = getClass().getResource("button.css").toExternalForm();
         sceneMain.getStylesheets().add(style);
         stage.setResizable(false);
-        stage.setTitle("Club beer!");
+        stage.setTitle("Club beer 🍾🍾");
         stage.setScene(sceneLogin);
         stage.show();
         DB dbHelper = new DB();

@@ -7,7 +7,6 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #010537;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.LoginController">
    <children>
-      <TextField fx:id="text_pass" layoutX="337.0" layoutY="179.0" prefHeight="42.0" prefWidth="238.0" promptText="Password" style="-fx-background-color: #f6ffa6; -fx-font-weight: 900;" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="25.0" />
       <ImageView fx:id="img_login" fitHeight="272.0" fitWidth="265.0" layoutX="24.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="95.0" />
       <TextField fx:id="text_login" layoutX="337.0" layoutY="102.0" prefHeight="42.0" prefWidth="238.0" promptText="Username" style="-fx-background-color: #f6ffa6; -fx-font-weight: 900; -fx-background-position: s;" AnchorPane.bottomAnchor="256.0" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="102.0" />
       <Button fx:id="btn_login" layoutX="388.0" layoutY="312.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="164.0" style="-fx-background-color: #ffb84c; -fx-font-weight: 900;" text="Login" AnchorPane.leftAnchor="388.0" AnchorPane.rightAnchor="75.0" />
@@ -16,10 +15,11 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="292.0" layoutY="177.0" text="🔐" textFill="#ffdb0f">
+      <Label layoutX="292.0" layoutY="177.0" text="🔐" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
+      <PasswordField fx:id="text_pass" layoutX="337.0" layoutY="181.0" prefHeight="42.0" prefWidth="265.0" promptText="Password" />
    </children>
 </AnchorPane>
