@@ -29,6 +29,10 @@ public class HomeController implements Initializable {
         });
     }
     @FXML
+    protected void OrderDetail() throws IOException{
+        HomeApplication.changeStage("order-view.fxml");
+    }
+    @FXML
     protected void product() throws IOException {
         HomeApplication.changeStage("product-view.fxml");
     }

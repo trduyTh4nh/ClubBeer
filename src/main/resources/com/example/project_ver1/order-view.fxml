@@ -4,17 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.SellController">
+<AnchorPane fx:id="id_btOrderDeTail" prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.SellController">
    <children>
       <Pane layoutY="58.0" prefHeight="653.0" prefWidth="374.0" style="-fx-background-color: #4682A9;">
          <children>
-            <TextField layoutX="38.0" layoutY="57.0" prefHeight="38.0" prefWidth="280.0" promptText="Tìm kiếm hóa đơn" />
-            <Button layoutX="38.0" layoutY="127.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F4D160;" text="Tìm kiếm">
+            <TextField fx:id="id_searchHoaDon" layoutX="38.0" layoutY="57.0" prefHeight="38.0" prefWidth="280.0" promptText="Tìm kiếm hóa đơn" />
+            <Button fx:id="id_btSeachHoaDon" layoutX="38.0" layoutY="127.0" mnemonicParsing="false" onAction="#search" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F4D160;" text="Tìm kiếm">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Button>
             <Separator layoutY="186.0" prefHeight="7.0" prefWidth="390.0" />
-            <Button layoutX="151.0" layoutY="127.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F31559;" text="Xóa" textFill="WHITE">
+            <Button fx:id="id_btDelete" layoutX="151.0" layoutY="127.0" mnemonicParsing="false" onAction="#deleteHoaDon" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F31559;" text="Xóa" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Button>
@@ -28,15 +28,12 @@
          <children>
             <Button fx:id="back" layoutX="15.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
          </children></Pane>
-      <TableView layoutX="373.0" layoutY="58.0" prefHeight="653.0" prefWidth="782.0">
+      <TableView fx:id="tbHoadon" layoutX="373.0" layoutY="58.0" onMouseClicked="#ClickItemHoaDon" prefHeight="653.0" prefWidth="782.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="ID Hóa Đơn " />
-            <TableColumn prefWidth="113.20001220703125" text="Ngày Lập" />
-            <TableColumn prefWidth="104.39999389648438" text="Mã sản phẩm" />
-            <TableColumn prefWidth="145.79998779296875" text="Tên sản phẩm" />
-            <TableColumn prefWidth="108.0" text="Số Lượng" />
-            <TableColumn prefWidth="107.0" text="Đơn giá" />
-            <TableColumn prefWidth="126.0" text="Tổng Tiền" />
+            <TableColumn fx:id="IDHoaDon" prefWidth="75.0" text="ID Hóa Đơn " />
+            <TableColumn fx:id="NgayLap" prefWidth="113.20001220703125" text="Ngày Lập" />
+            <TableColumn fx:id="TongTien" prefWidth="126.0" text="Tổng Tiền" />
+            <TableColumn fx:id="TenNguoiLap" prefWidth="126.0" text="Tên Người Lập" />
          </columns>
       </TableView>
    </children>
