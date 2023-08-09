@@ -10,8 +10,9 @@
         <Pane layoutY="1.0" prefHeight="50.0" prefWidth="1155.0" style="-fx-background-color: #002d40;">
          <children>
             <Button layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#dangXuat" text="Đăng xuất" />
+            <Separator layoutY="49.0" prefWidth="1155.0" />
          </children></Pane>
-        <GridPane fx:id="grid" hgap="5.0" layoutY="51.0" prefHeight="664.0" prefWidth="329.0" style="-fx-background-color: #6fbf82;" vgap="5.0">
+        <GridPane fx:id="grid" hgap="5.0" layoutY="51.0" prefHeight="664.0" prefWidth="329.0" style="-fx-background-color: #7895CB;" vgap="5.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="130.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="136.0" />
@@ -27,7 +28,7 @@
                 <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="60.79999999999999" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <Pane layoutX="329.0" layoutY="51.0" prefHeight="664.0" prefWidth="826.0" style="-fx-background-color: #9697e9;">
+        <Pane layoutX="329.0" layoutY="51.0" prefHeight="664.0" prefWidth="826.0" style="-fx-background-color: #4A55A2;">
             <children>
                 <Label layoutX="106.0" layoutY="37.0" textFill="WHITE">
                     <font>
@@ -36,7 +37,7 @@
                 </Label>
             <VBox alignment="CENTER" layoutX="12.0" layoutY="37.0" maxWidth="1.7976931348623157E308" spacing="25.0">
                <children>
-                  <Label text="Hoá đơn đặt hàng" textFill="WHITE">
+                  <Label prefWidth="394.0" text="Hoá đơn đặt hàng" textFill="#ffd51c">
                      <font>
                         <Font name="Arial Bold" size="46.0" />
                      </font>
@@ -47,7 +48,7 @@
                            <children>
                               <VBox spacing="25.0">
                                  <children>
-                                    <VBox spacing="15.0">
+                                    <VBox prefHeight="402.0" prefWidth="224.0" spacing="15.0">
                                        <children>
                                           <TextField fx:id="id_SoHoaDon" prefHeight="42.0" prefWidth="220.0" promptText="Số hóa đơn" />
                                           <HBox spacing="10.0" VBox.vgrow="ALWAYS">
@@ -63,7 +64,7 @@
                                            <Separator />
                                               <TextField fx:id="id_tenSP" prefHeight="42.0" prefWidth="220.0" promptText="Tên sản phẩm" />
                                               <TextField fx:id="id_gia" prefHeight="42.0" prefWidth="220.0" promptText="Giá" />
-                              
+
                                               <TextField fx:id="id_Soluong" prefHeight="42.0" prefWidth="220.0" promptText="Số lượng" />
                                           <ComboBox fx:id="id_size" prefHeight="34.0" prefWidth="128.0" promptText="Size" />
                                        </children>
@@ -88,15 +89,18 @@
                                  <children>
                                     <HBox maxWidth="1.7976931348623157E308" prefWidth="224.0" spacing="15.0">
                                        <children>
-                                              <Button fx:id="id_addProduct" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addProduct" prefHeight="72.0" text="Thêm sản phẩm" HBox.hgrow="ALWAYS">
+                                              <Button fx:id="id_addProduct" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addProduct" prefHeight="72.0" prefWidth="116.0" text="Thêm SP" textFill="#060708" HBox.hgrow="ALWAYS">
                                              <font>
-                                                <Font name="Arial" size="13.0" />
+                                                <Font name="Arial Bold" size="13.0" />
                                              </font>
                                           </Button>
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="72.0" text="Xoá">
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="72.0" text="Xoá" textFill="#060708">
                                              <padding>
                                                 <Insets left="25.0" right="25.0" />
                                              </padding>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
                                           </Button>
                                        </children>
                                     </HBox>
@@ -121,6 +125,11 @@
                   </HBox>
                </children>
             </VBox>
+            <Separator layoutX="-4.0" orientation="VERTICAL" prefHeight="664.0" prefWidth="7.0" />
+            <Label layoutX="623.0" layoutY="16.0" prefHeight="94.0" prefWidth="62.0" text="💰" textFill="#f6ff00">
+               <font>
+                  <Font size="62.0" />
+               </font></Label>
             </children></Pane>
     </children>
 </AnchorPane>

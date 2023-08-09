@@ -137,6 +137,7 @@ public class ProductController implements Initializable {
                 id_desc.setText(mota);
                 id_cate.setText(loaiSp);
                 id_price.setText(gia);
+
             }
 
     }
@@ -154,7 +155,6 @@ public class ProductController implements Initializable {
         db.updateProduct(product);
         getData();
     }
-
     @FXML
     public void deleteProduct(){
         try{

@@ -34,7 +34,7 @@ public class HomeController implements Initializable {
     }
     @FXML
     protected void order() throws IOException{
-        HomeApplication.changeStage("order-view.fxml");
+        HomeApplication.changeStage("statistical-view.fxml");
     }
     @FXML
     protected void employ() throws IOException{
@@ -44,6 +44,7 @@ public class HomeController implements Initializable {
     protected void logout() throws IOException{
         HomeApplication.changeStage("login-view.fxml");
     }
+
 
 
 }

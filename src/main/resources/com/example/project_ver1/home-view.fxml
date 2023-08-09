@@ -18,92 +18,91 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white; -fx-opacity: 0;">
+      <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white; -fx-opacity: 0;" />
+      <AnchorPane layoutY="46.0" prefHeight="666.0" prefWidth="1155.0" style="-fx-background-color: #4E4FEB;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="44.0" spacing="28.0" style="-fx-background-color: white;" AnchorPane.topAnchor="20.0">
-               <children>
-                  <ImageView fx:id="img_home" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@home.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="img_beer" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@beer.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="img_employ" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@team-management.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="img_order" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@shopping-list.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="img_logout" fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@logout.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="44.0" layoutY="46.0" prefHeight="666.0" prefWidth="1155.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
-         <children>
-            <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" layoutX="39.0" layoutY="472.0" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-color: none;" text="Home">
+            <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" layoutX="45.0" layoutY="447.0" maxWidth="1.7976931348623157E308" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-color: none; -fx-background-color: #9ED2BE;" text="Order detail">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="274.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#product" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Product">
+            <Button fx:id="id_btnProduct" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="447.0" maxWidth="1.7976931348623157E308" onAction="#product" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-background-color: #FF8B8B;" text="Product">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="510.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#employ" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-radius: 100;" text="Employee">
+            <Button fx:id="id_btnEmploy" alignment="BASELINE_LEFT" layoutX="516.0" layoutY="447.0" maxWidth="1.7976931348623157E308" onAction="#employ" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-radius: 0; -fx-background-color: #6D67E4; -fx-border-color: #FFFFFF;" text="Employee" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" disable="true" layoutX="734.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Order">
+            <Button fx:id="id_btnOrder" alignment="BASELINE_LEFT" layoutX="740.0" layoutY="447.0" maxWidth="1.7976931348623157E308" onAction="#order" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-background-color: #C9A7EB;" text="Statistical">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="954.0" layoutY="472.0" maxWidth="1.7976931348623157E308" onAction="#logout" prefHeight="150.0" prefWidth="150.0" style="-fx-alignment: center;" text="Logout">
+            <Button fx:id="id_btnLogout" alignment="BASELINE_LEFT" layoutX="960.0" layoutY="447.0" maxWidth="1.7976931348623157E308" onAction="#logout" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-background-color: #0F6292; -fx-border-color: #FFFFFF;" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="321.0" layoutY="122.0" style="-fx-border-color: organe; -fx-border-color: ; -fx-border-width: 3;" text="CLUB BEER">
+            <Label layoutX="340.0" layoutY="129.0" style="-fx-border-color: organe;  -fx-border-width: 3;" text="CLUB BEER">
                <font>
-                  <Font name="Arial Bold" size="88.0" />
+                  <Font name="Britannic Bold" size="88.0" />
                </font>
                <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
+                  <LinearGradient endX="0.4549763033175356" endY="1.0">
                      <stops>
                         <Stop>
                            <color>
-                              <Color />
+                              <Color red="1.0" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.9640287756919861" green="1.0" />
+                              <Color red="0.9666666388511658" green="1.0" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="725.0" layoutY="223.0" text="Born to drink" textFill="WHITE">
+            <Label layoutX="734.0" layoutY="230.0" text="BORN TO DRINK " textFill="#fffefe">
                <font>
-                  <Font name="Calibri Bold" size="20.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
+            <Label layoutX="811.0" layoutY="121.0" text="🍾" textFill="#ffff14">
+               <font>
+                  <Font name="System Bold" size="91.0" />
+               </font>
+            </Label>
+            <Label layoutX="103.0" layoutY="405.0" prefHeight="0.0" prefWidth="52.0" rotate="-26.6" text="📃" textFill="WHITE">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label layoutX="328.0" layoutY="398.0" text="🍻" textFill="WHITE">
+               <font>
+                  <Font size="54.0" />
+               </font>
+            </Label>
+            <Label layoutX="555.0" layoutY="395.0" text="🙍‍♂️" textFill="WHITE">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="797.0" layoutY="404.0" prefHeight="68.0" prefWidth="60.0" text="💹 " textFill="WHITE">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label layoutX="1009.0" layoutY="401.0" text="🏃" textFill="WHITE">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Label>
+
          </children></AnchorPane>
    </children>
 </AnchorPane>

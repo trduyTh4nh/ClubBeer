@@ -2,29 +2,41 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.SellController">
    <children>
-      <Pane layoutY="58.0" prefHeight="653.0" prefWidth="306.0" style="-fx-background-color: #9697e9;">
+      <Pane layoutY="58.0" prefHeight="653.0" prefWidth="374.0" style="-fx-background-color: #4682A9;">
          <children>
-            <TextField layoutX="37.0" layoutY="25.0" prefHeight="25.0" prefWidth="179.0" promptText="Tìm kiếm hóa đơn" />
-            <Button layoutX="126.0" layoutY="71.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Tìm kiếm" />
-            <Separator layoutX="4.0" layoutY="131.0" prefHeight="5.0" prefWidth="298.0" />
-            <Button layoutX="126.0" layoutY="106.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Xóa" />
+            <TextField layoutX="38.0" layoutY="57.0" prefHeight="38.0" prefWidth="280.0" promptText="Tìm kiếm hóa đơn" />
+            <Button layoutX="38.0" layoutY="127.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F4D160;" text="Tìm kiếm">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Separator layoutY="186.0" prefHeight="7.0" prefWidth="390.0" />
+            <Button layoutX="151.0" layoutY="127.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: #F31559;" text="Xóa" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Label layoutX="270.0" layoutY="55.0" text="🔍">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
          </children></Pane>
       <Pane prefHeight="58.0" prefWidth="1155.0" style="-fx-background-color: #002d40;">
          <children>
             <Button fx:id="back" layoutX="15.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
          </children></Pane>
-      <TableView layoutX="306.0" layoutY="59.0" prefHeight="200.0" prefWidth="757.0">
+      <TableView layoutX="373.0" layoutY="58.0" prefHeight="653.0" prefWidth="782.0">
          <columns>
             <TableColumn prefWidth="75.0" text="ID Hóa Đơn " />
             <TableColumn prefWidth="113.20001220703125" text="Ngày Lập" />
             <TableColumn prefWidth="104.39999389648438" text="Mã sản phẩm" />
             <TableColumn prefWidth="145.79998779296875" text="Tên sản phẩm" />
             <TableColumn prefWidth="108.0" text="Số Lượng" />
-            <TableColumn prefWidth="104.0" text="Đơn giá" />
-            <TableColumn prefWidth="100.60003662109375" text="Tổng Tiền" />
+            <TableColumn prefWidth="107.0" text="Đơn giá" />
+            <TableColumn prefWidth="126.0" text="Tổng Tiền" />
          </columns>
       </TableView>
    </children>

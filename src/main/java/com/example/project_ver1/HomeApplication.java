@@ -22,6 +22,7 @@ import java.util.Objects;
 
 public class HomeApplication extends Application {
     private static Stage s;
+
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         s = stage;
@@ -37,7 +38,7 @@ public class HomeApplication extends Application {
         Scene sceneOrder = new Scene(orderView.load());
         Scene sceneEmploy = new Scene(employView.load());
         Scene sceneSell = new Scene(sell.load());
-        String  style= getClass().getResource("button.css").toExternalForm();
+        String style = getClass().getResource("button.css").toExternalForm();
         sceneMain.getStylesheets().add(style);
         stage.setResizable(false);
         stage.setTitle("Club beer!");
@@ -72,7 +73,6 @@ public class HomeApplication extends Application {
         btnEmploy.setId("record-sales");
 
 
-
         Button btnProduct = (Button) sceneMain.lookup("#id_btnProduct");
         btnProduct.setId("record-sales");
 
@@ -100,10 +100,9 @@ public class HomeApplication extends Application {
 
         btnEmploy.setId("record-sales");
         ImageView home = (ImageView) sceneMain.lookup("#img_home");
-        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
-        home.setImage(i1);
-        btnHome.setGraphic(home);
-
+//        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
+//        home.setImage(i1);
+//        btnHome.setGraphic(home);
 
 
         ImageView close = (ImageView) sceneMain.lookup("#img_exit");
@@ -111,34 +110,33 @@ public class HomeApplication extends Application {
         close.setImage(i2);
 
 
-        ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
-        Image i3 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("beer.png")).toExternalForm());
-        beer.setImage(i3);
-        btnProduct.setGraphic(beer);
+//        ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
+//        Image i3 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("beer.png")).toExternalForm());
+//        beer.setImage(i3);
+//        btnProduct.setGraphic(beer);
 
 
-
-        ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
-        Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
-        employ.setImage(i5);
-        btnEmploy.setGraphic(employ);
-
-        ImageView order = (ImageView) sceneMain.lookup("#img_order");
-        Image i6 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("shopping-list.png")).toExternalForm());
-        order.setImage(i6);
-        btnOrder.setGraphic(order);
-
-        ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
-        Image i7 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("logout.png")).toExternalForm());
-        logout.setImage(i7);
-        btnLogout.setGraphic(logout);
-
+//        ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
+//        Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
+//        employ.setImage(i5);
+//        btnEmploy.setGraphic(employ);
+//
+//        ImageView order = (ImageView) sceneMain.lookup("#img_order");
+//        Image i6 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("shopping-list.png")).toExternalForm());
+//        order.setImage(i6);
+//        btnOrder.setGraphic(order);
+//
+//        ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
+//        Image i7 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("logout.png")).toExternalForm());
+//        logout.setImage(i7);
+//        btnLogout.setGraphic(logout);
 
 
     }
-    public static void setBackbutton(Scene scene, String res){
+
+    public static void setBackbutton(Scene scene, String res) {
         Button buttonback1 = (Button) scene.lookup("#back");
-        if(buttonback1!= null){
+        if (buttonback1 != null) {
             buttonback1.setOnAction(result -> {
                 try {
                     changeStage(res);
@@ -149,45 +147,48 @@ public class HomeApplication extends Application {
         }
 
     }
+
     public static void setImages(Scene sceneMain) throws FileNotFoundException {
 
 
-        ImageView home = (ImageView) sceneMain.lookup("#img_home");
-        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
-        home.setImage(i1);
+//        ImageView home = (ImageView) sceneMain.lookup("#img_home");
+//        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
+//        home.setImage(i1);
 
 
         ImageView close = (ImageView) sceneMain.lookup("#img_exit");
         Image i2 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("close.png")).toExternalForm());
         close.setImage(i2);
-
-        ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
-        Image i3 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("beer.png")).toExternalForm());
-        beer.setImage(i3);
-
-
-        ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
-        Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
-        employ.setImage(i5);
-
-        ImageView order = (ImageView) sceneMain.lookup("#img_order");
-        Image i6 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("shopping-list.png")).toExternalForm());
-        order.setImage(i6);
-
-        ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
-        Image i7 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("logout.png")).toExternalForm());
-        logout.setImage(i7);
+//
+//        ImageView beer = (ImageView) sceneMain.lookup("#img_beer");
+//        Image i3 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("beer.png")).toExternalForm());
+//        beer.setImage(i3);
+//
+//
+//        ImageView employ = (ImageView) sceneMain.lookup("#img_employ");
+//        Image i5 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("team-management.png")).toExternalForm());
+//        employ.setImage(i5);
+//
+//        ImageView order = (ImageView) sceneMain.lookup("#img_order");
+//        Image i6 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("shopping-list.png")).toExternalForm());
+//        order.setImage(i6);
+//
+//        ImageView logout = (ImageView) sceneMain.lookup("#img_logout");
+//        Image i7 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("logout.png")).toExternalForm());
+//        logout.setImage(i7);
     }
+
     public static void changeStage(String res) throws IOException {
         FXMLLoader loader = new FXMLLoader(HomeApplication.class.getResource(res));
         Scene sc = new Scene(loader.load());
         s.setScene(sc);
-        if(res != "home-view.fxml"){
+        if (res != "home-view.fxml") {
             setBackbutton(sc, "home-view.fxml");
         }
-        if(res == "home-view.fxml")
+        if (res == "home-view.fxml")
             setImages(sc);
     }
+
     public static void main(String[] args) {
         launch();
     }

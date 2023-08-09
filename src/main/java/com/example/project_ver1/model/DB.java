@@ -2,6 +2,7 @@ package com.example.project_ver1.model;
 import com.example.project_ver1.class_model.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class DB {
@@ -117,6 +118,15 @@ public class DB {
     public ResultSet getOrderdetail() throws SQLException {
         return st.executeQuery("SELECT * FROM CTHD");
     }
+//    public Product getProductById(int id) throws SQLException {
+//        ResultSet set = st.executeQuery("SELECT * FROM SanPham WHERE MaSP = '"+ id + "'" );
+//
+//        if(set.next()){{
+//            return new Product(set.getInt(1), set.getString(2), set.getString(3), set.getInt(4), set.getInt(5));
+//        }}
+//        return new Product(0, "null", "null", 0, 0);
+//    }
+
     public ResultSet getorderDetailbyIDHoaDon(int id) throws SQLException {
         return st.executeQuery("SELECT soct, c.masp, tensp, soluong, gia * soluong, size FROM cthd c, sanpham s WHERE c.masp = s.masp AND ID = " + id);
     }
@@ -131,10 +141,10 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement("DELETE FROM HOADON WHERE id = " + id);
         statement.execute();
     }
-    public void deleteDetailOrder(int soct) throws SQLException {
-        PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM CTHD WHERE soct = %d", soct));
-        statement.execute();
-    }
+//    public void deleteDetailOrder(int soct) throws SQLException {
+//        PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM CTHD WHERE soct = %d", soct));
+//        statement.execute();
+//    }
     public Product getProductById(int id) throws SQLException {
         ResultSet set = st.executeQuery("SELECT * FROM SanPham WHERE MaSP = '"+ id + "'" );
 
@@ -143,6 +153,30 @@ public class DB {
         }}
         return new Product(0, "null", "null", 0, 0);
     }
+
+    public void deleteDetailOrder(int soct) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(String.format("DELETE FROM CTHD WHERE soct = %d", soct));
+        statement.execute();
+    }
+
+    public int monthlyIncome(int month, int year) throws SQLException {
+        int total = 0;
+        PreparedStatement statement = conn.prepareStatement("SELECT SUM(tongtien) AS total FROM hoadon WHERE EXTRACT(MONTH FROM ngaylap) = ? and EXTRACT(YEAR FROM ngaylap) = ?");
+        statement.setInt(1, month);
+        statement.setInt(2, year);
+
+        ResultSet resultSet = statement.executeQuery();
+
+        if (resultSet.next()) {
+            total = resultSet.getInt("total"); // Lấy tổng dưới dạng số nguyên
+        }
+
+        return total;
+    }
+
+
+
+
 
 //    public  getAllOrderDetail(){
 //
