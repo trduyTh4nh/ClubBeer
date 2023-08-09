@@ -162,6 +162,27 @@ public class EmployController implements Initializable {
         return user;
     }
     @FXML
+    public void editUser() {
+        User u = new User();
+        u.setId(Integer.parseInt(field_id.getText()));
+        u.setName(field_name.getText());
+        u.setPhone(field_phone.getText());
+        u.setPassword(field_password.getText());
+        u.setEmail(field_email.getText());
+        u.setAge(Integer.parseInt(field_age.getText()));
+        u.setRole(cbRole.getSelectionModel().getSelectedItem().getId());
+        try{
+            db.editUser(u);
+            getData();
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setHeaderText("Lỗi khi sửa người dùng");
+            a.setContentText(e.getMessage());
+            a.show();
+        }
+
+    }
+    @FXML
     public void addUser() throws SQLException {
         try{
             User user = getFromField();

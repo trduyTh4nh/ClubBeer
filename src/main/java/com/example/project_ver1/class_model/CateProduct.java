@@ -34,4 +34,9 @@ public class CateProduct {
     public void setMoTa(String moTa) {
         MoTa = moTa;
     }
+
+    @Override
+    public String toString() {
+        return TenSp;
+    }
 }

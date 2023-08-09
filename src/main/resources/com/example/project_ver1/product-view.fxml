@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.ProductController">
    <children>
       <Pane layoutX="91.0" layoutY="-86.0" prefHeight="55.0" prefWidth="1155.0" style="-fx-background-color: #002d40;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="374.0" layoutY="142.0" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
-      <TableView fx:id="tableProduct" layoutX="261.0" layoutY="54.0" onMouseClicked="#ClickItems" prefHeight="657.0" prefWidth="893.0" AnchorPane.topAnchor="54.0">
+      <TableView fx:id="tableProduct" layoutX="524.0" layoutY="54.0" onMouseClicked="#ClickItems" prefHeight="657.0" prefWidth="948.0" AnchorPane.topAnchor="54.0">
          <columns>
-            <TableColumn id="idProduct" fx:id="masp" prefWidth="133.0" style="-fx-background-color: #C5DFF8;" text="Mã sản phẩm" />
-            <TableColumn id="nameProduct" fx:id="tensp" prefWidth="222.0" text="Tên sản phẩm" />
-            <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="106.0" style="-fx-background-color: #C5DFF8;" text="Loại sản phẩm" />
-            <TableColumn id="priceProduct" fx:id="giasp" prefWidth="187.0" text="Giá" />
-            <TableColumn id="desProduct" fx:id="motasp" prefWidth="322.0" style="-fx-background-color: C5DFF8;" text="Mô tả" />
+            <TableColumn id="idProduct" fx:id="masp" prefWidth="51.0" style="-fx-background-color: #C5DFF8;" text="#" />
+            <TableColumn id="nameProduct" fx:id="tensp" prefWidth="265.0" text="Tên sản phẩm" />
+            <TableColumn id="cateProduct" fx:id="loaisp" prefWidth="116.0" style="-fx-background-color: #C5DFF8;" text="Loại sản phẩm" />
+            <TableColumn id="priceProduct" fx:id="giasp" prefWidth="158.0" text="Giá" />
+            <TableColumn id="desProduct" fx:id="motasp" prefWidth="357.0" style="-fx-background-color: C5DFF8;" text="Mô tả" />
          </columns>
       </TableView>
-      <Pane layoutY="54.0" prefHeight="657.0" prefWidth="261.0" style="-fx-background-color: #7895CB;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
+      <Pane layoutY="54.0" prefHeight="657.0" prefWidth="526.0" style="-fx-background-color: #7895CB;" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="54.0">
          <children>
             <TextField fx:id="id_search" layoutX="19.0" layoutY="20.0" prefHeight="34.0" prefWidth="224.0" promptText="Tìm kiếm sản phẩm" />
             <Button layoutX="162.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="35.0" prefWidth="80.0" text="Tìm kiếm" />
             <Separator layoutX="-4.0" layoutY="117.0" prefHeight="0.0" prefWidth="261.0" />
-            <Label layoutX="20.0" layoutY="145.0" prefHeight="25.0" prefWidth="193.0" style="-fx-font-weight: 900;" text="Thêm sản mới sản phẩm" textFill="WHITE">
+            <Label layoutX="20.0" layoutY="145.0" prefHeight="25.0" prefWidth="193.0" style="-fx-font-weight: 900;" text="Danh mục sản phẩm" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -32,7 +41,11 @@
                <children>
                   <TextField fx:id="id_id" prefHeight="40.0" prefWidth="216.0" promptText="Mã sản phẩm" />
                   <TextField fx:id="id_name" prefHeight="43.0" prefWidth="216.0" promptText="Tên sản phẩm" />
-                  <TextField fx:id="id_cate" prefHeight="47.0" prefWidth="216.0" promptText="Loại sản phẩm" />
+                  <ComboBox fx:id="cbLoaiSP" maxWidth="1.7976931348623157E308" onAction="#chooseCate" prefWidth="150.0" promptText="Loại SP">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </ComboBox>
                   <TextField fx:id="id_price" prefHeight="43.0" prefWidth="216.0" promptText="Giá" />
                   <TextField fx:id="id_desc" prefHeight="46.0" prefWidth="216.0" promptText="Mô tả" />
                   <Button fx:id="btn_addProduct" mnemonicParsing="false" onAction="#addProduct" prefHeight="35.0" prefWidth="216.0" text="Thêm sản Phẩm" />
@@ -48,9 +61,19 @@
             </Label>
             <Label layoutX="213.0" layoutY="144.0" prefWidth="20.0" rotate="44.3" text="🍺" textFill="#ffea00">
                <font>
-                  <Font size="19.0" />
+                  <Font name="Apple Color Emoji" size="19.0" />
                </font>
             </Label>
+            <VBox layoutX="284.0" layoutY="20.0" prefHeight="618.0" prefWidth="216.0" spacing="25.0">
+               <children>
+                  <TextField fx:id="id_idcate" prefHeight="40.0" prefWidth="216.0" promptText="Mã loại" />
+                  <TextField fx:id="id_namecate" prefHeight="43.0" prefWidth="216.0" promptText="Tên loại" />
+                  <TextField fx:id="id_desccate" prefHeight="43.0" prefWidth="216.0" promptText="Mô tả" />
+                  <Button fx:id="btn_addCate" mnemonicParsing="false" onAction="#addCate" prefHeight="35.0" prefWidth="216.0" text="Thêm loại" />
+                  <Button fx:id="btn_editCate" mnemonicParsing="false" onAction="#updateCate" prefHeight="33.0" prefWidth="216.0" text="Sửa loại" />
+                  <Button fx:id="btn_addCate1" layoutX="10.0" layoutY="211.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="35.0" prefWidth="216.0" text="Clear giá trị" />
+               </children>
+            </VBox>
          </children>
       </Pane>
    </children>

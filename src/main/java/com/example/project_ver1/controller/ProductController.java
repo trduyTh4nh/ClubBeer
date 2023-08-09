@@ -1,23 +1,19 @@
 package com.example.project_ver1.controller;
 
+import com.example.project_ver1.class_model.CateProduct;
 import com.example.project_ver1.class_model.Product;
 import com.example.project_ver1.model.DB;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.PointLight;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 
-import java.io.LineNumberInputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class ProductController implements Initializable {
@@ -27,7 +23,20 @@ public class ProductController implements Initializable {
     public TableColumn<Product, String> motasp;
     public TableColumn<Product, String> loaisp;
     public TableColumn<Product, String> giasp;
-
+    @FXML
+    ComboBox<CateProduct> cbLoaiSP;
+    @FXML
+    TextField id_idcate;
+    @FXML
+    TextField id_namecate;
+    @FXML
+    TextField id_desccate;
+    @FXML
+    Button btn_addCate;
+    @FXML
+    Button btn_delCate;
+    @FXML
+    Button btn_editCate;
 
     @FXML
     TextField id_id;
@@ -35,8 +44,6 @@ public class ProductController implements Initializable {
     @FXML
     TextField id_name;
 
-    @FXML
-    TextField id_cate;
 
     @FXML
     TextField id_price;
@@ -54,11 +61,76 @@ public class ProductController implements Initializable {
 
     }
 
+    ArrayList<CateProduct> arrcate;
+    @FXML
+    public void chooseCate(){
+        CateProduct cate = cbLoaiSP.getSelectionModel().getSelectedItem();
+        id_idcate.setText(String.valueOf(cate.getMaloai()));
+        id_namecate.setText(cate.getTenSp());
+        id_desccate.setText(cate.getMoTa());
+    }
+    @FXML
+    public void addCate() throws SQLException {
+        int idCate = Integer.parseInt(id_idcate.getText());
+        String nameCate = id_namecate.getText();
+        String mota = id_desccate.getText();
+        CateProduct cate = new CateProduct(idCate, nameCate, mota);
+        try{
+            arrcate.clear();
+            db.addLoaiSP(cate);
+            id_idcate.setText("");
+            id_namecate.setText("");
+            id_desccate.setText("");
+            ResultSet rs = db.getLoaiSp();
+            while (rs.next()){
 
+                arrcate.add(new CateProduct(rs.getInt("maloai"), rs.getString("tenloai"), rs.getString("mota")));
+            }
+            ObservableList<CateProduct> ct = FXCollections.observableArrayList(arrcate);
+            cbLoaiSP.setItems(ct);
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setHeaderText("Lỗi truy xuất CSDL");
+            a.setContentText(e.getMessage());
+            a.show();
+        }
 
+    }
+    @FXML
+    public void updateCate(){
+        int idCate = Integer.parseInt(id_idcate.getText());
+        String nameCate = id_namecate.getText();
+        String mota = id_desccate.getText();
+        CateProduct cate = new CateProduct(idCate, nameCate, mota);
+        try{
+            arrcate.clear();
+            db.updateLoaiSP(cate);
+            id_idcate.setText("");
+            id_namecate.setText("");
+            id_desccate.setText("");
+            ResultSet rs = db.getLoaiSp();
+            while (rs.next()){
+                arrcate.add(new CateProduct(rs.getInt("maloai"), rs.getString("tenloai"), rs.getString("mota")));
+            }
+            ObservableList<CateProduct> ct = FXCollections.observableArrayList(arrcate);
+            cbLoaiSP.setItems(ct);
+        } catch (SQLException e){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setHeaderText("Lỗi truy xuất CSDL");
+            a.setContentText(e.getMessage());
+            a.show();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            arrcate = new ArrayList<>();
+            ResultSet rs = db.getLoaiSp();
+            while (rs.next()){
+                arrcate.add(new CateProduct(rs.getInt("maloai"), rs.getString("tenloai"), rs.getString("mota")));
+            }
+            ObservableList<CateProduct> cate = FXCollections.observableArrayList(arrcate);
+            cbLoaiSP.setItems(cate);
             getData();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,18 +138,25 @@ public class ProductController implements Initializable {
     }
     @FXML
     public void addProduct() throws SQLException {
-
-        Product product = new Product(Integer.parseInt(id_id.getText().toString()), id_name.getText().toString(), id_desc.getText().toString(), Integer.parseInt(id_cate.getText().toString()), Integer.parseInt(id_price.getText().toString()));
+        int idCate = cbLoaiSP.getSelectionModel().getSelectedItem().getMaloai();
+        Product product = new Product(Integer.parseInt(id_id.getText().toString()), id_name.getText().toString(), id_desc.getText().toString(), idCate, Integer.parseInt(id_price.getText().toString()));
         db.insertProduct(product);
         getData();
 
         clearTextFeild();
     }
+    @FXML
+    public void clearFields(){
+        clearTextFeild();
+        id_idcate.setText("");
+        id_namecate.setText("");
+        id_desccate.setText("");
+    }
     public void clearTextFeild(){
         id_id.clear();
         id_name.clear();
         id_desc.clear();
-        id_cate.clear();
+        cbLoaiSP.getSelectionModel().clearSelection();
         id_price.clear();
     }
     @FXML
@@ -123,7 +202,7 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    private void ClickItems(){
+    private void ClickItems() throws SQLException {
             if(tableProduct.getSelectionModel().getSelectedItem() != null){
                 ID = tableProduct.getSelectionModel().getSelectedItem().getMaSP();
                 String tensp = tableProduct.getSelectionModel().getSelectedItem().getTenSP();
@@ -131,11 +210,13 @@ public class ProductController implements Initializable {
                 String mota = tableProduct.getSelectionModel().getSelectedItem().getMoTa();
                 String loaiSp = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getMaLoaiSp());
                 String gia = String.valueOf(tableProduct.getSelectionModel().getSelectedItem().getGia());
-
+                ResultSet rs = db.getSingularLoaiSP(Integer.parseInt(loaiSp));
+                rs.next();
+                CateProduct cate = new CateProduct(rs.getInt("maloai"), rs.getString("tenloai"), rs.getString("mota"));
                 id_id.setText(masp);
                 id_name.setText(tensp);
                 id_desc.setText(mota);
-                id_cate.setText(loaiSp);
+                cbLoaiSP.getSelectionModel().select(cate);
                 id_price.setText(gia);
 
             }
@@ -151,7 +232,8 @@ public class ProductController implements Initializable {
 
     @FXML
     private void edtProduct() throws SQLException {
-        Product product = new Product(Integer.parseInt(id_id.getText().toString()), id_name.getText().toString(), id_desc.getText().toString(), Integer.parseInt(id_cate.getText().toString()), Integer.parseInt(id_price.getText().toString()));
+        int cate = cbLoaiSP.getSelectionModel().getSelectedItem().getMaloai();
+        Product product = new Product(Integer.parseInt(id_id.getText().toString()), id_name.getText().toString(), id_desc.getText().toString(), cate, Integer.parseInt(id_price.getText().toString()));
         db.updateProduct(product);
         getData();
     }
