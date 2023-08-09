@@ -21,7 +21,7 @@
       <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: white; -fx-opacity: 0;" />
       <AnchorPane layoutY="46.0" prefHeight="666.0" prefWidth="1155.0" style="-fx-background-color: #4E4FEB;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
          <children>
-            <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" layoutX="45.0" layoutY="447.0" maxWidth="1.7976931348623157E308" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-color: none; -fx-background-color: #9ED2BE;" text="Order detail">
+            <Button fx:id="id_dashboard" alignment="BASELINE_LEFT" layoutX="45.0" layoutY="447.0" maxWidth="1.7976931348623157E308" onAction="#orderAction" prefHeight="97.0" prefWidth="150.0" style="-fx-alignment: center; -fx-border-color: none; -fx-background-color: #9ED2BE;" text="Order detail">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>

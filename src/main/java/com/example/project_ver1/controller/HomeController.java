@@ -45,6 +45,10 @@ public class HomeController implements Initializable {
         HomeApplication.changeStage("login-view.fxml");
     }
 
+    @FXML
+    protected void orderAction() throws IOException{
+        HomeApplication.changeStage("order-view.fxml");
+    }
 
 
 }

@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.StatisticalController">
+<AnchorPane prefHeight="712.0" prefWidth="1155.0" style="-fx-background-color: #9ED2BE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_ver1.controller.StatisticalController">
    <children>
       <BarChart fx:id="barchart" layoutY="71.0" prefHeight="641.0" prefWidth="1155.0" style="-fx-background-color: #D8D9DA;">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
       </BarChart>
       <ComboBox fx:id="id_year_first" layoutX="28.0" layoutY="14.0" prefHeight="36.0" prefWidth="88.0" promptText="2022" />
       <ComboBox fx:id="id_year_second" layoutX="185.0" layoutY="14.0" prefHeight="36.0" prefWidth="96.0" promptText="2023" />
-      <Label layoutX="142.0" layoutY="4.0" prefHeight="39.0" prefWidth="71.0" text="⬅️" textFill="#1d9a0a">
+      <Label layoutX="142.0" layoutY="4.0" prefHeight="39.0" prefWidth="71.0" text="⬅" textFill="#1d9a0a">
          <font>
             <Font size="25.0" />
          </font>
@@ -28,6 +28,11 @@
          </font>
       </Label>
       <Button layoutX="341.0" layoutY="13.0" mnemonicParsing="false" onAction="#updateData" prefHeight="39.0" prefWidth="110.0" text="Cập nhật dữ liệu">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="475.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="39.0" prefWidth="81.0" text="Xóa dữ liệu">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
