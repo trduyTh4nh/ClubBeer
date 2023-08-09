@@ -169,6 +169,7 @@ public class ProductController implements Initializable {
         }
         return arrProduct;
     }
+
     @FXML
     public ArrayList<Product> listDataToSearch() throws SQLException {
         String key = id_search.getText().toString();

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -26,7 +27,7 @@ public class LoginController {
     @FXML
     private TextField text_login;
     @FXML
-    private TextField text_pass;
+    private PasswordField text_pass;
     @FXML
     private Button btn_login;
 

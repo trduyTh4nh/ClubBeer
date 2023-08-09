@@ -32,7 +32,10 @@ public class HomeApplication extends Application {
         FXMLLoader orderView = new FXMLLoader(HomeApplication.class.getResource("order-view.fxml"));
         FXMLLoader employView = new FXMLLoader(HomeApplication.class.getResource("employ-view.fxml"));
         FXMLLoader sell = new FXMLLoader(HomeApplication.class.getResource("sell-view.fxml"));
+        FXMLLoader statistical = new FXMLLoader(HomeApplication.class.getResource("statistical-view.fxml"));
+
         Scene sceneLogin = new Scene(login.load());
+        Scene sceneStatistical = new Scene(statistical.load());
         Scene sceneMain = new Scene(fxmlLoader.load());
         Scene sceneProduct = new Scene(productView.load());
         Scene sceneOrder = new Scene(orderView.load());
@@ -41,7 +44,7 @@ public class HomeApplication extends Application {
         String style = getClass().getResource("button.css").toExternalForm();
         sceneMain.getStylesheets().add(style);
         stage.setResizable(false);
-        stage.setTitle("Club beer!");
+        stage.setTitle("Club beer 🍾🍾");
         stage.setScene(sceneLogin);
         stage.show();
         DB dbHelper = new DB();
@@ -62,6 +65,12 @@ public class HomeApplication extends Application {
         buttonback1.setOnAction(result -> {
             stage.setScene(sceneMain);
         });
+
+//        Button btnback4c = (Button) sceneStatistical.lookup("#cccc");
+//        btnback4c.setOnAction(result -> {
+//            stage.setScene(sceneMain);
+//        });
+
 
 
         Button btnEmploy = (Button) sceneMain.lookup("#id_btnEmploy");
@@ -91,6 +100,10 @@ public class HomeApplication extends Application {
             stage.setScene(sceneMain);
         });
 
+
+
+
+
         Button btnLogout = (Button) sceneMain.lookup("#id_btnLogout");
         btnLogout.setId("record-sales");
 
@@ -99,6 +112,7 @@ public class HomeApplication extends Application {
 
         btnEmploy.setId("record-sales");
         ImageView home = (ImageView) sceneMain.lookup("#img_home");
+
 //        Image i1 = new Image(Objects.requireNonNull(HomeApplication.class.getResource("home.png")).toExternalForm());
 //        home.setImage(i1);
 //        btnHome.setGraphic(home);
