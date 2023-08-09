@@ -44,7 +44,6 @@ public class HomeApplication extends Application {
         stage.setTitle("Club beer!");
         stage.setScene(sceneLogin);
         stage.show();
-
         DB dbHelper = new DB();
 
 
