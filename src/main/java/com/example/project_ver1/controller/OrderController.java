@@ -194,7 +194,6 @@ public class OrderController implements Initializable {
         BufferedWriter writer = new BufferedWriter(new FileWriter(out));
         writer.write(s.toString());
         writer.close();
-        db.deleteOrderDetail(Integer.parseInt(id_SoHoaDon.getText()));
         tb_ordetail.getItems().clear();
         getData();
     }

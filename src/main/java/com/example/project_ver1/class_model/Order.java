@@ -1,10 +1,14 @@
 package com.example.project_ver1.class_model;
 
+import javafx.scene.shape.StrokeLineCap;
+
 import java.sql.Date;
 
 public class Order {
     private int MaHD;
     private String NgayLap;
+    private String TongTien;
+    private String idUser;
 
     public Order(int maHD) {
         MaHD = maHD;
