@@ -186,7 +186,6 @@ public class ProductController implements Initializable {
 
         ArrayList<Product> list = listData();
         tableProduct.getItems().addAll(list);
-
     }
     public void getDataTable(ArrayList<Product> arrayList){
         initData();

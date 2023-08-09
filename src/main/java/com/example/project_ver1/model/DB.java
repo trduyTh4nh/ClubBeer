@@ -36,10 +36,35 @@ public class DB {
         return st.executeQuery("SELECT * FROM USERS");
     }
 
+    public ResultSet getUserbyID(int id) throws SQLException {
+        String query = "SELECT * FROM USERS WHERE id = ?";
+
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, id);
+
+        return preparedStatement.executeQuery();
+    }
+
+    public ResultSet search(int id) throws SQLException {
+        String query = "SELECT * FROM HoaDon WHERE id = ?";
+
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, id);
+
+        return preparedStatement.executeQuery();
+    }
+
     public ResultSet getProduct() throws SQLException{
         return st.executeQuery("SELECT * FROM SanPham");
     }
+    public ResultSet getOrder() throws SQLException{
+        return st.executeQuery("SELECT * FROM HoaDon");
+    }
 
+
+    public ResultSet searchHoaDon(int key) throws SQLException{
+        return st.executeQuery("SELECT * FROM HoaDon Where id  = ? ");
+    }
 
     public ResultSet searchProduct(String nameProduct) throws SQLException {
         return st.executeQuery("SELECT * FROM SanPham WHERE TenSP LIKE '"+ nameProduct + "%'");
@@ -49,6 +74,10 @@ public class DB {
     }
     public void removeUser(int id) throws SQLException {
         PreparedStatement statement = conn.prepareStatement("DELETE FROM USERS WHERE ID = " + String.valueOf(id));
+        statement.execute();
+    }
+    public void removeHoaDon(int id) throws SQLException{
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM HoaDon WHERE ID = " + String.valueOf(id));
         statement.execute();
     }
     public void insertProduct(Product product) throws SQLException {

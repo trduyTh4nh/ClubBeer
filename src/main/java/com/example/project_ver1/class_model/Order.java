@@ -21,7 +21,22 @@ public class Order {
         this.idUser = idUser;
     }
 
-    public Order(int maHD, String ngayLap) {
+    public String getTongTien() {
+        return TongTien;
+    }
+
+    public void setTongTien(String tongTien) {
+        TongTien = tongTien;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+        public Order(int maHD, String ngayLap) {
         MaHD = maHD;
         NgayLap = ngayLap;
     }

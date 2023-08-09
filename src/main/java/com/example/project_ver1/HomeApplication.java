@@ -56,7 +56,7 @@ public class HomeApplication extends Application {
 //        Button btnDashboard = (Button) sceneMain.lookup("#id_dashboard");
 //        btnDashboard.setOnAction(result -> {
 //                stage.setScene(sceneMain);
-//        });
+//        });9
 //        Button btnProduct = (Button) sceneMain.lookup("#id_btnProduct");
 //        btnProduct.setOnAction(result -> {
 //            stage.setScene(sceneProduct);
